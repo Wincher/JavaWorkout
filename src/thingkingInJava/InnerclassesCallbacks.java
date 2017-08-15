@@ -1,4 +1,4 @@
-import java.util.Arrays;
+package thingkingInJava;
 
 /**
  * Created by Wincher on 2017/6/21.

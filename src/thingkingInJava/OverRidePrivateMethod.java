@@ -1,3 +1,4 @@
+package thingkingInJava;
 /**
  * Created by Wincher on 2017/5/18.
  * 出处: 8.2.4 缺陷:"覆盖"私有方法

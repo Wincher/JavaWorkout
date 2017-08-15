@@ -1,3 +1,4 @@
+package thingkingInJava;
 /**
  * Created by Wincher on 2017/6/20.
  * 出处: 8.4协变返回类型
