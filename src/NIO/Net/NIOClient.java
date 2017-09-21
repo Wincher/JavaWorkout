@@ -1,4 +1,4 @@
-package NIOServer;
+package NIO.Net;
 
 /**
  * Created by wincher on 01/09/2017.

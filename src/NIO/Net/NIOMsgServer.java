@@ -1,4 +1,4 @@
-package NIOServer;
+package NIO.Net;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
@@ -101,7 +101,7 @@ public class NIOMsgServer {
 					readBuffer.get(bytes);
 					
 					String request = new String(bytes,"UTF-8");
-					System.out.println("NIOServer -> request body: " + request);
+					System.out.println("NIO -> request body: " + request);
 					//------------⬆️读数据 ========== ⬇️写数据----------------
 					String response = request.equals("GET CURRENT TIME") ? new Date().toString() : "Bad request!";
 					
