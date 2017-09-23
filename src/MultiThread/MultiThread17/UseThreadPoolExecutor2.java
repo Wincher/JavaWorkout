@@ -1,6 +1,5 @@
 package MultiThread.MultiThread17;
 
-import sun.security.provider.NativePRNG;
 
 import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicInteger;

@@ -6,7 +6,6 @@ import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 import io.netty.util.concurrent.EventExecutorGroup;
-import sun.jvm.hotspot.runtime.Bytes;
 
 import java.util.Date;
 
