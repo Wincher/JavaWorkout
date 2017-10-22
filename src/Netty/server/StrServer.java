@@ -1,4 +1,4 @@
-package Netty.cn.wincher.netty.quickStart.server;
+package Netty.server;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.Channel;

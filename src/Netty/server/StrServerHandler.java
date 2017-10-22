@@ -1,4 +1,4 @@
-package Netty.cn.wincher.netty.quickStart.server;
+package Netty.server;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
