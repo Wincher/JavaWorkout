@@ -17,7 +17,9 @@
     <dubbo:annotation package="dubbo.dubbox.Provider"/>
 
     <!-- 用dubbo协议在20880端口暴露服务 -->
-    <dubbo:protocol name="dubbo"/>
+    <dubbo:protocol name="dubbo" />
+    <!--如果需要使用序列化框架-->
+    <!--<dubbo:protocol name="dubbo" serialization="kryo" optimizer="dubbo.dubbox.SerializationOptmizerImpl" />-->
     <!-- rest -->
     <dubbo:protocol name="rest" server="tomcat" port="8888" contextpath="provider" accepts="300"/>
 
