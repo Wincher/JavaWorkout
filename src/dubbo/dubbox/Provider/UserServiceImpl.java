@@ -14,9 +14,7 @@ import javax.ws.rs.core.MediaType;
  * Created by wincher on 24/10/2017.
  */
 
-
-//todo: Initialization of bean failed; nested exception is java.lang.ExceptionInInitializerError
-// 应该是没有将项目放到tomcat环境中，暂时先这样
+//要添加tomcat支持的jar包，jboss-logging.jar
 @Path("/userService")
 @Consumes({MediaType.APPLICATION_JSON, MediaType.TEXT_XML})
 @Produces({ContentType.APPLICATION_JSON_UTF_8, ContentType.TEXT_XML_UTF_8})
@@ -24,15 +22,18 @@ import javax.ws.rs.core.MediaType;
 @com.alibaba.dubbo.config.annotation.Service(interfaceClass = UserServcie.class,protocol = {"rest","dubbo"},retries = 0)
 public class UserServiceImpl implements UserServcie {
 	@GET
-	@Path("/testget")
+	@Path("/testGet")
 	@Override
 	public void testGet() {
 		System.out.println("test get...");
 	}
 	
+	@GET
+	@Path("/getUser")
 	@Override
 	public User getUser() {
-		return null;
+		User u = new User("123", "jonny", 19, "m");
+		return u;
 	}
 	
 	@Override

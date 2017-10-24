@@ -1,4 +1,4 @@
-package Kyro;
+package Kryo;
 
 import com.esotericsoftware.kryo.Kryo;
 import com.esotericsoftware.kryo.io.Input;
@@ -13,7 +13,7 @@ import java.util.Map;
 /**
  * Created by wincher on 19/09/2017.
  */
-public class TestKyroSer {
+public class TestKryoSer {
 	private static final String FILE_DIR = "";
 	
 	public static void main(String[] args) throws FileNotFoundException {

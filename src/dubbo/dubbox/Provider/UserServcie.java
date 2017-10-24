@@ -5,7 +5,9 @@ import dubbo.dubbox.User;
 /**
  * Created by wincher on 23/10/2017.
  */
-interface UserServcie {
+
+//不加public其他包无法调用，启动dubbo rest服务jboss-resteasy包调用报错
+public interface UserServcie {
 	
 	void testGet();
 	
