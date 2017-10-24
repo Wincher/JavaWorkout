@@ -15,6 +15,8 @@ public class Consumer {
 				new String[]{"dubbo/dubbo/Consumer/sample-provider.xml"});
 		context.start();
 		
+		
+		//todo:不懂为什么要用Provider下的SampleService才可以明明是一样的类
 		dubbo.dubbo.Provider.SampleService sampleService = (dubbo.dubbo.Provider.SampleService) context.getBean("sampleService");
 		System.out.println(sampleService.sayHello("Tom"));
 		
