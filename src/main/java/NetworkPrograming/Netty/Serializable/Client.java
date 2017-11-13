@@ -1,6 +1,5 @@
 package NetworkPrograming.Netty.Serializable;
 
-import com.wincher.utils.GzipUtil;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelFuture;
@@ -42,7 +41,6 @@ public class Client {
 				}
 			});
 		ChannelFuture cf = bootstrap.connect(HOST,PORT).sync();
-		
 		for (int i = 0; i < 3; i++) {
 			Request req = new Request((i+1)+"", "message" + (i+1));
 			

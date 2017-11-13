@@ -18,7 +18,6 @@ public class TestSingleRedis {
 	private static Jedis jedis;
 	//连接池 (存放多个jedis连接)
 	private static ShardedJedisPool pool;
-	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 		//单个节点

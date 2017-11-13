@@ -1,7 +1,6 @@
 package Jedis;
 
 import Jedis.entity.User;
-import com.wincher.utils.FastJsonConvert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import redis.clients.jedis.Jedis;
