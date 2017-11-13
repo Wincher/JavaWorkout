@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/JavaWorkout.iml" filepath="$PROJECT_DIR$/JavaWorkout.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../WinchersUtils/WinchersUtils.iml" filepath="$PROJECT_DIR$/../WinchersUtils/WinchersUtils.iml" />
     </modules>
   </component>
 </project>
