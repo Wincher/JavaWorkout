@@ -23,5 +23,4 @@
     <!-- rest -->
     <dubbo:protocol name="rest" server="tomcat" port="8888" contextpath="provider" accepts="300"/>
 
-
 </beans>

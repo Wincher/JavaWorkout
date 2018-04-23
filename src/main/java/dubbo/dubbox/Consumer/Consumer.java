@@ -1,7 +1,7 @@
 package dubbo.dubbox.Consumer;
 
-import dubbo.dubbox.Provider.*;
-import org.apache.xbean.spring.context.ClassPathXmlApplicationContext;
+
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.io.IOException;
 

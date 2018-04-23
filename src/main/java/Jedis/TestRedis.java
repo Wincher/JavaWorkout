@@ -26,7 +26,7 @@ public class TestRedis {
 	
 	@BeforeClass
 	public static void before() {
-		j = new Jedis("192.168.0.111", 6379);
+		j = new Jedis("192.168.1.23", 16379);
 	}
 	
 	@Test

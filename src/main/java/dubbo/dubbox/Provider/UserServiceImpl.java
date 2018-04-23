@@ -1,6 +1,5 @@
 package dubbo.dubbox.Provider;
 
-import com.alibaba.dubbo.rpc.protocol.rest.support.ContentType;
 import dubbo.dubbox.User;
 import org.springframework.stereotype.Service;
 
