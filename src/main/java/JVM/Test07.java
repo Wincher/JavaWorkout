@@ -11,7 +11,7 @@ public class Test07 {
 		//参数：-XX:+UseTLAB -XX:+PrintTLAB -XX:+PrintGC -XX:TLABSize=102400 -XX:-ResizeTLAB
 		// -XX:TLABRefillWasteFraction=100 -XX:-DoEscapeAnalysis -server
 		
-		for (int i = 0; i < 10000000; i++) {
+		for (int i = 0; i < 1000000000; i++) {
 			alloc();
 		}
 		
