@@ -28,6 +28,7 @@
         <module>SearchEngine</module>
         <module>Java SE</module>
         <module>Zookeeper</module>
+        <module>WebService</module>
     </modules>
     <dependencies>
 
