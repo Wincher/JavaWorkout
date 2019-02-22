@@ -29,6 +29,7 @@
         <module>Java SE</module>
         <module>Zookeeper</module>
         <module>WebService</module>
+        <module>JAVAEE</module>
     </modules>
     <dependencies>
 
