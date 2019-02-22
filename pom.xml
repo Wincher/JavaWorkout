@@ -30,6 +30,7 @@
         <module>Zookeeper</module>
         <module>WebService</module>
         <module>JAVAEE</module>
+        <module>Storm</module>
     </modules>
     <dependencies>
 
