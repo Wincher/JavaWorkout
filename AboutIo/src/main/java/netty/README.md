@@ -1,4 +1,4 @@
-quickstart
+#Quick Start  
 从客户端发送一个字符串给服务器端处理
 服务器端处理完成返回结果给客户端
 
@@ -11,6 +11,5 @@ multiHandler
 Netty能解决的问题
 Dubbo Hadoop spark 底层全部是用的netty
 
-1.首先弄一个bootstrap 对象
-2.封装bootstrap 对象
-3.
+1.首先创建一个bootstrap对象  
+2.封装bootstrap对象  

@@ -18,7 +18,5 @@ public class Test {
     WeakReference<Integer> wr = new WeakReference<>(1);
     ReferenceQueue queue = new ReferenceQueue();
     PhantomReference pr = new PhantomReference(new Object(), queue);
-    
-    
   }
 }
