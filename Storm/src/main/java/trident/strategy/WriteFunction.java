@@ -2,9 +2,9 @@ package trident.strategy;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import storm.trident.operation.BaseFunction;
-import storm.trident.operation.TridentCollector;
-import storm.trident.tuple.TridentTuple;
+import org.apache.storm.trident.operation.BaseFunction;
+import org.apache.storm.trident.operation.TridentCollector;
+import org.apache.storm.trident.tuple.TridentTuple;
 
 /**
  * Created by wincher on 07/11/2017.

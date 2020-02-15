@@ -1,8 +1,5 @@
 package drpc.basic;
 
-import backtype.storm.generated.DRPCExecutionException;
-import backtype.storm.utils.DRPCClient;
-import org.apache.thrift7.TException;
 
 /**
  * 调用前需要将BasicDRPCTopology作为DRPC服务发不到storm上，storm陪你文件要配置drpc

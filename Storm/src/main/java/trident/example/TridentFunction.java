@@ -1,19 +1,17 @@
 package trident.example;
 
-import backtype.storm.Config;
-import backtype.storm.LocalCluster;
-import backtype.storm.StormSubmitter;
-import backtype.storm.generated.AlreadyAliveException;
-import backtype.storm.generated.InvalidTopologyException;
-import backtype.storm.generated.StormTopology;
-import backtype.storm.tuple.Fields;
-import backtype.storm.tuple.Values;
-import storm.trident.Stream;
-import storm.trident.TridentTopology;
-import storm.trident.operation.BaseFunction;
-import storm.trident.operation.TridentCollector;
-import storm.trident.testing.FixedBatchSpout;
-import storm.trident.tuple.TridentTuple;
+import org.apache.storm.Config;
+import org.apache.storm.LocalCluster;
+import org.apache.storm.StormSubmitter;
+import org.apache.storm.generated.StormTopology;
+import org.apache.storm.trident.Stream;
+import org.apache.storm.trident.TridentTopology;
+import org.apache.storm.trident.operation.BaseFunction;
+import org.apache.storm.trident.operation.TridentCollector;
+import org.apache.storm.trident.testing.FixedBatchSpout;
+import org.apache.storm.trident.tuple.TridentTuple;
+import org.apache.storm.tuple.Fields;
+import org.apache.storm.tuple.Values;
 
 /**
  * Created by wincher on 04/11/2017.
@@ -82,7 +80,7 @@ public class TridentFunction {
 		return topology.build(); //利用这种方式，返回StormTopology对象，进行提交
 	}
 	
-	public static void main(String[] args) throws InterruptedException, AlreadyAliveException, InvalidTopologyException {
+	public static void main(String[] args) throws Exception {
 		Config conf = new Config();
 		//设置batch最大处理
 		conf.setNumWorkers(2);

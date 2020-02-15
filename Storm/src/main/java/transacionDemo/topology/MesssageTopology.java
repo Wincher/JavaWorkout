@@ -1,11 +1,11 @@
 package transacionDemo.topology;
 
+import org.apache.storm.Config;
+import org.apache.storm.LocalCluster;
+import org.apache.storm.topology.TopologyBuilder;
 import transacionDemo.bolt.WriteBolt;
 import transacionDemo.bolt.SplitBolt;
 import transacionDemo.spout.MessageSpout;
-import backtype.storm.Config;
-import backtype.storm.LocalCluster;
-import backtype.storm.topology.TopologyBuilder;
 import util.Utils;
 
 /**
@@ -13,7 +13,7 @@ import util.Utils;
  */
 public class MesssageTopology {
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		//实例化对象
 		MessageSpout spout = new MessageSpout();
 		SplitBolt splitBolt = new SplitBolt();
