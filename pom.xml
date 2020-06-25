@@ -32,6 +32,7 @@
         <module>JAVAEE</module>
         <module>Storm</module>
         <module>shiro</module>
+        <module>CDI</module>
     </modules>
     <dependencies>
 
