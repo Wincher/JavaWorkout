@@ -4,11 +4,11 @@ import WordCountDemo.bolt.WordCountBolt;
 import WordCountDemo.bolt.WordReportBolt;
 import WordCountDemo.bolt.WordSplitBolt;
 import WordCountDemo.spout.WordSpout;
+import org.apache.storm.Config;
+import org.apache.storm.LocalCluster;
+import org.apache.storm.topology.TopologyBuilder;
+import org.apache.storm.tuple.Fields;
 import util.Utils;
-import backtype.storm.Config;
-import backtype.storm.LocalCluster;
-import backtype.storm.topology.TopologyBuilder;
-import backtype.storm.tuple.Fields;
 
 /**
  * Created by wincher on 02/11/2017.
@@ -22,7 +22,7 @@ public class WordTopology {
 	private static final String REPORT_BOLT_ID = "report-bolt";
 	private static final String TOPOLOGY_NAME = "word-count-topology";
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		//实例化对象
 		WordSpout spout = new WordSpout();
 		WordSplitBolt splitBolt = new WordSplitBolt();

@@ -15,6 +15,22 @@ public class TestEnum {
         Color c = null;
         System.out.println(c.name());
         
+//        Color a = null;
+//        System.out.println(a.name());
+        
+        String color = "red_re";
+        Color color1 = null;
+        try {
+            color1 = Color.valueOf(color.toUpperCase());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        if (null == color1) {
+        
+        } else {
+            System.out.println(color1);
+        }
+    
     }
 }
 

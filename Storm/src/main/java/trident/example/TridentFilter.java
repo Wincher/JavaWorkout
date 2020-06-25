@@ -1,20 +1,21 @@
 package trident.example;
 
-import backtype.storm.Config;
-import backtype.storm.LocalCluster;
-import backtype.storm.StormSubmitter;
-import backtype.storm.generated.AlreadyAliveException;
-import backtype.storm.generated.InvalidTopologyException;
-import backtype.storm.generated.StormTopology;
-import backtype.storm.tuple.Fields;
-import backtype.storm.tuple.Values;
-import storm.trident.Stream;
-import storm.trident.TridentTopology;
-import storm.trident.operation.BaseFilter;
-import storm.trident.operation.BaseFunction;
-import storm.trident.operation.TridentCollector;
-import storm.trident.testing.FixedBatchSpout;
-import storm.trident.tuple.TridentTuple;
+import org.apache.storm.Config;
+import org.apache.storm.LocalCluster;
+import org.apache.storm.StormSubmitter;
+import org.apache.storm.generated.AlreadyAliveException;
+import org.apache.storm.generated.InvalidTopologyException;
+import org.apache.storm.generated.StormTopology;
+import org.apache.storm.thrift.TException;
+import org.apache.storm.trident.Stream;
+import org.apache.storm.trident.TridentTopology;
+import org.apache.storm.trident.operation.BaseFilter;
+import org.apache.storm.trident.operation.BaseFunction;
+import org.apache.storm.trident.operation.TridentCollector;
+import org.apache.storm.trident.testing.FixedBatchSpout;
+import org.apache.storm.trident.tuple.TridentTuple;
+import org.apache.storm.tuple.Fields;
+import org.apache.storm.tuple.Values;
 
 /**
  * Created by wincher on 05/11/2017.
@@ -64,7 +65,7 @@ public class TridentFilter {
 		return topology.build();
 	}
 	
-	public static void main(String[] args) throws AlreadyAliveException, InvalidTopologyException, InterruptedException {
+	public static void main(String[] args) throws Exception {
 		Config config = new Config();
 		config.setNumWorkers(2);
 		config.setMaxSpoutPending(20);

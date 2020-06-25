@@ -1,8 +1,8 @@
 package kafka.redis;
 
-import backtype.storm.Config;
-import backtype.storm.LocalCluster;
-import backtype.storm.topology.TopologyBuilder;
+import org.apache.storm.Config;
+import org.apache.storm.LocalCluster;
+import org.apache.storm.topology.TopologyBuilder;
 
 import java.util.concurrent.TimeUnit;
 
@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit;
  */
 public class Topology {
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		TopologyBuilder builder = new TopologyBuilder();
 		
 		builder.setSpout("spout", new SampleSpout(), 2);

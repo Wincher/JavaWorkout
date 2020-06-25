@@ -1,18 +1,16 @@
 package drpc.basic;
 
-import backtype.storm.Config;
-import backtype.storm.LocalCluster;
-import backtype.storm.LocalDRPC;
-import backtype.storm.StormSubmitter;
-import backtype.storm.drpc.LinearDRPCTopologyBuilder;
-import backtype.storm.generated.AlreadyAliveException;
-import backtype.storm.generated.InvalidTopologyException;
-import backtype.storm.topology.BasicOutputCollector;
-import backtype.storm.topology.OutputFieldsDeclarer;
-import backtype.storm.topology.base.BaseBasicBolt;
-import backtype.storm.tuple.Fields;
-import backtype.storm.tuple.Tuple;
-import backtype.storm.tuple.Values;
+import org.apache.storm.Config;
+import org.apache.storm.LocalCluster;
+import org.apache.storm.LocalDRPC;
+import org.apache.storm.StormSubmitter;
+import org.apache.storm.drpc.LinearDRPCTopologyBuilder;
+import org.apache.storm.topology.BasicOutputCollector;
+import org.apache.storm.topology.OutputFieldsDeclarer;
+import org.apache.storm.topology.base.BaseBasicBolt;
+import org.apache.storm.tuple.Fields;
+import org.apache.storm.tuple.Tuple;
+import org.apache.storm.tuple.Values;
 
 /**
  * Created by wincher on 03/11/2017.
@@ -34,7 +32,7 @@ public class BasicDRPCTopology {
 		}
 	}
 	
-	public static void main(String[] args) throws AlreadyAliveException, InvalidTopologyException {
+	public static void main(String[] args) throws Exception {
 		//创建drpc实例
 		LinearDRPCTopologyBuilder builder = new LinearDRPCTopologyBuilder("exclamation");
 		
