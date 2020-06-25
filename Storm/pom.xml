@@ -9,9 +9,6 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>storm01</name>
-    <url>http://wincher.cn</url>
-
     <repositories>
         <!-- Repository where we can find the storm dependencies -->
         <repository>
