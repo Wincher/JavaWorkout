@@ -13,7 +13,6 @@
 
     <dependencies>
 
-        <!-- https://mvnrepository.com/artifact/org.apache.activemq/activemq-all -->
         <dependency>
             <groupId>org.apache.activemq</groupId>
             <artifactId>activemq-all</artifactId>

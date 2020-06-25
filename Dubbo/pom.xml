@@ -22,7 +22,6 @@
             <artifactId>dubbo-rpc-rest</artifactId>
             <version>2.6.7</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/com.alibaba/dubbo -->
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>dubbo</artifactId>
