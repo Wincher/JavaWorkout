@@ -17,7 +17,7 @@ public class TestEnum {
         
 //        Color a = null;
 //        System.out.println(a.name());
-        
+        System.out.println(Color.RED.name());
         String color = "red_re";
         Color color1 = null;
         try {
