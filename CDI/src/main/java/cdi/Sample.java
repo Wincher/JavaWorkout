@@ -24,6 +24,10 @@ public class Sample {
 	@Inject
 	Echo echo;
 	
+	public Sample(String a) {
+		System.out.println(a + echo.toString());
+	}
+	
 	void hello() {
 		echo.print();
 	}

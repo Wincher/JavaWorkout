@@ -6,14 +6,14 @@ public class extendTest {
 		System.out.println(b.getB());
 		System.out.println(b.getA());
 	}
-	private static A getA() {
-		A a = new B();
+	private static Parent getA() {
+		Parent a = new B();
 		a.setA(1);
 		((B)a).setB(3);
 		return a;
 	}
 }
-class A {
+class Parent {
 	public int getA() {
 		return a;
 	}
@@ -25,7 +25,7 @@ class A {
 	int a;
 }
 
-class B extends A {
+class B extends Parent {
 	int b;
 	
 	public int getB() {
