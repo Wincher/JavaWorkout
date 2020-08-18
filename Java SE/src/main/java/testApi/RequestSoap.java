@@ -36,8 +36,8 @@ public class RequestSoap implements Runnable {
   @Override
   public void run() {
     CloseableHttpClient aDefault = HttpClients.createDefault();
-    HttpPost httpPost = new HttpPost("http://ws77.leandev.cn:8080/backend/LoanApplicationServiceBean");
-    StringEntity data = getData(new Random().nextBoolean()?"super":"superit", "greenback");
+    HttpPost httpPost = new HttpPost("http://url/someservice");
+    StringEntity data = getData(new Random().nextBoolean()?"b":"a", "123");
     httpPost.setEntity(data);
     try {
       CloseableHttpResponse response = aDefault.execute(httpPost);
@@ -54,23 +54,6 @@ public class RequestSoap implements Runnable {
   }
   
   private StringEntity getData(String username, String password) {
-    return new StringEntity( "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:loan=\"http://loanapplication.services.backend.greenback/\">\n" +
-        "   <soapenv:Header/>\n" +
-        "   <soapenv:Body>\n" +
-        "      <loan:getLoanApplicationBusyBOByRefNum>\n" +
-        "         <!--Optional:-->\n" +
-        "         <refNum>1909188364</refNum>\n" +
-        "         <!--Optional:-->\n" +
-        "         <user>\n" +
-        "            <!--Optional:-->\n" +
-        "            <password>" + password +
-        "</password>\n" +
-        "            <!--Optional:-->\n" +
-        "            <username>" + username +
-        "</username>\n" +
-        "         </user>\n" +
-        "      </loan:getLoanApplicationBusyBOByRefNum>\n" +
-        "   </soapenv:Body>\n" +
-        "</soapenv:Envelope>", Charset.forName("UTF-8"));
+    return new StringEntity( "soap content", Charset.forName("UTF-8"));
   }
 }

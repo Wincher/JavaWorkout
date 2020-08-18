@@ -42,8 +42,8 @@ public class RequestLoginToMypages implements Runnable {
     CloseableHttpClient aDefault = HttpClients.createDefault();
   
     HttpClientContext context = HttpClientContext.create();
-    HttpPost httpPost = new HttpPost("http://ws77.leandev.cn:8080/backend/CustomerAuthenticationServiceBean");
-    StringEntity data = getData(new Random().nextBoolean()?"super":"superit", "greenback");
+    HttpPost httpPost = new HttpPost("http://domain/someservice");
+    StringEntity data = getData(new Random().nextBoolean()?"a":"b", "123");
     httpPost.setEntity(data);
     try {
       CloseableHttpResponse response = aDefault.execute(httpPost, context);
@@ -65,24 +65,6 @@ public class RequestLoginToMypages implements Runnable {
   }
   
   private StringEntity getData(String username, String password) {
-    return new StringEntity( "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:log=\"http://login.services.backend.greenback/\">\n" +
-        "   <soapenv:Header/>\n" +
-        "   <soapenv:Body>\n" +
-        "      <log:fetchUrlForLoginMypages>\n" +
-        "         <!--Optional:-->\n" +
-        "         <ssn>" + "7509287897" +
-        "</ssn>\n" +
-        "         <!--Optional:-->\n" +
-        "         <user>\n" +
-        "            <!--Optional:-->\n" +
-        "            <password>greenback</password>\n" +
-        "            <!--Optional:-->\n" +
-        "            <username>super</username>\n" +
-        "         </user>\n" +
-        "         <!--Optional:-->\n" +
-        "         <ip>10.10.3.235</ip>\n" +
-        "      </log:fetchUrlForLoginMypages>\n" +
-        "   </soapenv:Body>\n" +
-        "</soapenv:Envelope>", Charset.forName("UTF-8"));
+    return new StringEntity( "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:log=\"http:///\">\n", Charset.forName("UTF-8"));
   }
 }
