@@ -7,7 +7,8 @@ import java.nio.channels.AsynchronousSocketChannel;
 import java.util.concurrent.ExecutionException;
 
 /**
- * Created by wincher on 15/09/2017.
+ * @author wincher
+ * @date   15/09/2017.
  */
 public class Client implements Runnable{
 	private AsynchronousSocketChannel asc;

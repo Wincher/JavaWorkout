@@ -8,7 +8,8 @@ import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 
 /**
- * Created by wincher on 30/08/2017.
+ * @author wincher
+ * @date   30/08/2017.
  */
 public class StrServer {
 	

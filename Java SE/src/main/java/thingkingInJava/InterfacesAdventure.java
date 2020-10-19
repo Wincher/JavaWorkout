@@ -1,7 +1,8 @@
 package thingkingInJava;
 
 /**
- * Created by Wincher on 2017/6/20.
+ * @author wincher
+ * @date   2017/6/20.
  * source: 9.4:java中的多继承
  *
  */

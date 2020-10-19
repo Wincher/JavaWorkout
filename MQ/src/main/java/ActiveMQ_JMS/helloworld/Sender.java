@@ -6,7 +6,8 @@ import javax.jms.*;
 import java.util.concurrent.TimeUnit;
 
 /**
- * Created by wincher on 11/09/2017.
+ * @author wincher
+ * @date   11/09/2017.
  */
 public class Sender {
 	public static void main(String[] args) throws Exception {

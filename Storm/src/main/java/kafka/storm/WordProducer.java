@@ -7,7 +7,8 @@ import kafka.producer.ProducerConfig;
 import java.util.Properties;
 
 /**
- * Created by wincher on 08/11/2017.
+ * @author wincher
+ * @date   08/11/2017.
  */
 public class WordProducer {
 	public static void main(String[] args) {

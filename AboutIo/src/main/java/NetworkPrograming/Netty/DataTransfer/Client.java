@@ -16,7 +16,8 @@ import io.netty.handler.timeout.ReadTimeoutHandler;
 import java.util.concurrent.TimeUnit;
 
 /**
- * Created by wincher on 22/09/2017.
+ * @author wincher
+ * @date   22/09/2017.
  */
 public class Client {
 	

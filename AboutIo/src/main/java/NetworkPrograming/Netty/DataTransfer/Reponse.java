@@ -3,7 +3,8 @@ package NetworkPrograming.Netty.DataTransfer;
 import java.io.Serializable;
 
 /**
- * Created by wincher on 22/09/2017.
+ * @author wincher
+ * @date   22/09/2017.
  */
 public class Reponse implements Serializable {
 	

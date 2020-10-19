@@ -5,7 +5,8 @@ import org.apache.storm.trident.operation.TridentCollector;
 import org.apache.storm.trident.tuple.TridentTuple;
 
 /**
- * Created by wincher on 07/11/2017.
+ * @author wincher
+ * @date   07/11/2017.
  */
 public class ResultFunction extends BaseFunction {
 	@Override

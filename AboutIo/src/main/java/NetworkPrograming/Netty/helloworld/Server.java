@@ -11,7 +11,8 @@ import io.netty.handler.codec.DelimiterBasedFrameDecoder;
 import io.netty.handler.codec.string.StringDecoder;
 
 /**
- * Created by wincher on 16/09/2017.
+ * @author wincher
+ * @date   16/09/2017.
  * 对于ChannelOption.SO_BACKLOG的解释：
  * 服务器断TCP内核模块维护有两个队列，我们称之为A，B吧，
  * 客户端向服务器端connect的时候，会发送带有SYN标志的包（第一次握手），

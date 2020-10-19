@@ -12,7 +12,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by wincher on 08/11/2017.
+ * @author wincher
+ * @date   08/11/2017.
  */
 public class SentenceBolt extends BaseBasicBolt {
 	

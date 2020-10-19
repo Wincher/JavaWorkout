@@ -12,7 +12,8 @@ import java.util.Map;
 import java.util.Random;
 
 /**
- * Created by wincher on 09/11/2017.
+ * @author wincher
+ * @date   09/11/2017.
  */
 public class SampleSpout extends BaseRichSpout {
 	

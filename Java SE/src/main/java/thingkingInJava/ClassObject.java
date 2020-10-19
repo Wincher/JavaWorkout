@@ -2,7 +2,8 @@ package thingkingInJava;
 
 
 /**
- * Created by wincher on 16/08/2017.
+ * @author wincher
+ * @date   16/08/2017.
  * 出处: 14.2 Class对象
  * describe:要理解RTTI在Java中的工作原理，首先必须知道类型信息在运行时如何表示的。
  * 这项工作是由成为Class对象的特殊对象完成的，它包含了与类相关的信息。

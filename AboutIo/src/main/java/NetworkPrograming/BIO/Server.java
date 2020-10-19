@@ -5,7 +5,8 @@ import java.net.ServerSocket;
 import java.net.Socket;
 
 /**
- * Created by wincher on 14/09/2017.
+ * @author wincher
+ * @date   14/09/2017.
  */
 public class Server {
 	final static int PORT = 8765;

@@ -6,7 +6,8 @@ import org.apache.curator.retry.RetryNTimes;
 
 /**
  * todo: 待处理
- * Created by wincher on 17/10/2017.
+ * @author wincher
+ * @date   17/10/2017.
  */
 public class CuratorClientTest {
 	/** Zookeeper info */

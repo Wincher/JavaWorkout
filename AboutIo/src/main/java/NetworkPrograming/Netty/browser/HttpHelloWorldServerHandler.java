@@ -12,7 +12,9 @@ import static io.netty.handler.codec.http.HttpHeaderNames.CONTENT_LENGTH;
 import static io.netty.handler.codec.http.HttpHeaderNames.CONTENT_TYPE;
 
 /**
- * Created by wincher on 24/09/2017.
+ *
+ * @author wincher
+ * @date 24/09/2017
  */
 public class HttpHelloWorldServerHandler extends ChannelInboundHandlerAdapter {
 	private static final byte[] CONTENT = {'H','e','l','l','o',' ','W','o','r','l','d'};

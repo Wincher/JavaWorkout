@@ -7,7 +7,8 @@ import java.io.Serializable;
 import java.util.Map;
 
 /**
- * Created by wincher on 09/11/2017.
+ * @author wincher
+ * @date   09/11/2017.
  */
 public class RedisOperations implements Serializable {
 	

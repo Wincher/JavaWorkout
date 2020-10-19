@@ -6,7 +6,8 @@ import org.apache.storm.topology.base.BaseBasicBolt;
 import org.apache.storm.tuple.Tuple;
 
 /**
- * Created by wincher on 08/11/2017.
+ * @author wincher
+ * @date   08/11/2017.
  */
 public class PrintBolt extends BaseBasicBolt {
 	

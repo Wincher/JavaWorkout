@@ -8,7 +8,8 @@ import redis.clients.jedis.Jedis;
 import java.util.*;
 
 /**
- * Created by wincher on 27/09/2017.
+ * @author wincher
+ * @date   27/09/2017.
  */
 public class TestRedis {
 	

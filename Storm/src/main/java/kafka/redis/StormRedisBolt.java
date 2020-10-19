@@ -11,7 +11,8 @@ import java.util.Map;
 import java.util.UUID;
 
 /**
- * Created by wincher on 09/11/2017.
+ * @author wincher
+ * @date   09/11/2017.
  */
 public class StormRedisBolt implements IBasicBolt {
 	private static final long serialVersionUID = 2L;

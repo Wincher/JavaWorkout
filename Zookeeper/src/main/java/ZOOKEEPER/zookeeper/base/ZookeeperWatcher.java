@@ -12,7 +12,8 @@ import java.util.concurrent.atomic.AtomicInteger;
  * Zookeeper watcher
  * 本类就是一个Watcher类(实现了org.apache.zookeeper.Watcher类)
  *
- * Created by wincher on 16/10/2017.
+ * @author wincher
+ * @date   16/10/2017.
  */
 public class ZookeeperWatcher implements Watcher{
 	/** 定义原子变量 */

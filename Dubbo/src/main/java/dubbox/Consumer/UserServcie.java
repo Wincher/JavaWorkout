@@ -3,7 +3,8 @@ package dubbox.Consumer;
 import dubbox.User;
 
 /**
- * Created by wincher on 23/10/2017.
+ * @author wincher
+ * @date   23/10/2017.
  */
 interface UserServcie {
 	

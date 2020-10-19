@@ -6,7 +6,8 @@ import java.nio.channels.CompletionHandler;
 import java.util.concurrent.ExecutionException;
 
 /**
- * Created by wincher on 15/09/2017.
+ * @author wincher
+ * @date   15/09/2017.
  */
 public class ServerCompletionHandler implements CompletionHandler<AsynchronousSocketChannel, Server> {
 	

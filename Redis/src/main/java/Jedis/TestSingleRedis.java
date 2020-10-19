@@ -9,7 +9,8 @@ import redis.clients.jedis.*;
 import java.util.*;
 
 /**
- * Created by wincher on 27/09/2017.
+ * @author wincher
+ * @date   27/09/2017.
  */
 public class TestSingleRedis {
 	//单独连接一台redis服务器

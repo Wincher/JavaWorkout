@@ -8,7 +8,8 @@ import io.netty.channel.ChannelInboundHandlerAdapter;
 import java.util.HashMap;
 
 /**
- * Created by wincher on 24/09/2017.
+ * @author wincher
+ * @date   24/09/2017.
  */
 public class ServerHeartBeatHandler extends ChannelInboundHandlerAdapter {
 	private static HashMap<String, String> AUTH_IP_MAP = new HashMap<String,String>();

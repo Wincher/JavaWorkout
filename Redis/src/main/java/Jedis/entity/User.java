@@ -1,7 +1,8 @@
 package Jedis.entity;
 
 /**
- * Created by wincher on 27/09/2017.
+ * @author wincher
+ * @date   27/09/2017.
  */
 public class User {
 	private String id;

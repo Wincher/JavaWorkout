@@ -4,7 +4,8 @@ import NetworkPrograming.Netty.DataTransfer.Request;
 import io.netty.channel.ChannelHandlerContext;
 
 /**
- * Created by wincher on 24/09/2017.
+ * @author wincher
+ * @date   24/09/2017.
  */
 public class HeartBeatTask implements Runnable {
 	

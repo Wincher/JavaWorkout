@@ -1,6 +1,7 @@
 package thingkingInJava;
 /**
- * Created by Wincher on 2017/6/20.
+ * @author wincher
+ * @date   2017/6/20.
  *  出处: 8.3.3 缺陷:"覆盖"私有方法
  * describe:InnerPolymorphic.draw()方法设计为要被覆盖，这种覆盖是在ExtendClass中发生的，但是InnerPolymorphic构造器调用这
  * 个方法的时候，导致了ExtendClass.draw()的调用而mark并不是初始值1，而是0，这是因为在初始化过程中，在其他任何事物发生之

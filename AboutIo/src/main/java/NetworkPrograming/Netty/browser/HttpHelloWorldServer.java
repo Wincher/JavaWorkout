@@ -15,7 +15,8 @@ import javax.net.ssl.SSLException;
 import java.security.cert.CertificateException;
 
 /**
- * Created by wincher on 24/09/2017.
+ * @author wincher
+ * @date   24/09/2017.
  */
 public final class HttpHelloWorldServer {
 	static final boolean SSL = System.getProperty("ssl") != null;

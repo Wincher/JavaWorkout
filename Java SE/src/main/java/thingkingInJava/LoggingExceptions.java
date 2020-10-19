@@ -4,7 +4,8 @@ import java.io.StringWriter;
 import java.util.logging.Logger;
 
 /**
- * Created by Wincher on 2017/6/28.
+ * @author wincher
+ * @date   2017/6/28.
  * src:12.4.1 异常与记录日志
  */
 class LoggingException extends Exception {

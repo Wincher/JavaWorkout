@@ -5,7 +5,8 @@ import io.netty.channel.ChannelInboundHandlerAdapter;
 import io.netty.util.ReferenceCountUtil;
 
 /**
- * Created by wincher on 20/09/2017.
+ * @author wincher
+ * @date   20/09/2017.
  */
 public class ClientHandler extends ChannelInboundHandlerAdapter {
 	@Override

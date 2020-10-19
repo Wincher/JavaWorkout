@@ -5,7 +5,7 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * @author wincher
- * @since 2019-09-06
+ * @date 2019-09-06
  * <p> multithread <p>
  */
 public class VolatileTest {

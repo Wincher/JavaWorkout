@@ -7,7 +7,8 @@ import java.io.PrintWriter;
 import java.net.Socket;
 
 /**
- * Created by wincher on 14/09/2017.
+ * @author wincher
+ * @date   14/09/2017.
  */
 public class ServerHandler implements Runnable {
 	

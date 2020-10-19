@@ -16,7 +16,7 @@ import java.security.Security;
 
 /**
  * @author huwq
- * @since 2018/6/28
+ * @date 2018/6/28
  * <p> ch01_authentication <p>
  */
 public class LoginLogoutTest {

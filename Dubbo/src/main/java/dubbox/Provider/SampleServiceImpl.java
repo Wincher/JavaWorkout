@@ -8,7 +8,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Created by wincher on 19/10/2017.
+ * @author wincher
+ * @date   19/10/2017.
  */
 @Service("simpleService")
 @com.alibaba.dubbo.config.annotation.Service(interfaceClass = dubbox.Provider.SampleService.class, protocol = {"dubbo"}, retries = 0)

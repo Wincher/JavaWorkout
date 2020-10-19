@@ -12,7 +12,8 @@ import java.util.Iterator;
 import java.util.Set;
 
 /**
- * Created by wincher on 01/09/2017.
+ * @author wincher
+ * @date   01/09/2017.
  */
 public class NIOMsgServer {
 	private int port;

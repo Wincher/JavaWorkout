@@ -11,7 +11,7 @@ import java.util.stream.IntStream;
 
 /**
  * @author huwq
- * @since 2018/8/12
+ * @date 2018/8/12
  * <p> PACKAGE_NAME <p>
  */
 public class ParallelStreamTest {

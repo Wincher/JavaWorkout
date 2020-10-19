@@ -12,7 +12,8 @@ import io.netty.handler.logging.LoggingHandler;
 import io.netty.handler.timeout.ReadTimeoutHandler;
 
 /**
- * Created by wincher on 22/09/2017.
+ * @author wincher
+ * @date   22/09/2017.
  */
 public class Server {
 	public static void main(String[] args) throws InterruptedException {

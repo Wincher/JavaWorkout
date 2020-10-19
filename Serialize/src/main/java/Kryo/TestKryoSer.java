@@ -11,7 +11,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Created by wincher on 19/09/2017.
+ * @author wincher
+ * @date   19/09/2017.
  */
 public class TestKryoSer {
 	private static final String FILE_DIR = "";

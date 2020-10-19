@@ -5,7 +5,9 @@ import io.netty.channel.SimpleChannelInboundHandler;
 import io.netty.handler.codec.http.FullHttpRequest;
 
 /**
- * Created by wincher on 24/09/2017.
+ *
+ * @author wincher
+ * @date 24/09/2017
  */
 public class HttpFileServerHandler extends SimpleChannelInboundHandler<FullHttpRequest> {
 	

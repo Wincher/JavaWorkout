@@ -8,7 +8,8 @@ import io.netty.channel.ChannelInboundHandlerAdapter;
 import java.util.Date;
 
 /**
- * Created by wincher on 30/08/2017.
+ * @author wincher
+ * @date   30/08/2017.
  */
 public class StrServerHandler extends ChannelInboundHandlerAdapter {
 	@Override

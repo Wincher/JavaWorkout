@@ -5,7 +5,8 @@ import org.apache.solr.client.solrj.beans.Field;
 import java.io.Serializable;
 
 /**
- * Created by wincher on 22/11/2017.
+ * @author wincher
+ * @date   22/11/2017.
  */
 public class User implements Serializable {
 	

@@ -1,7 +1,8 @@
 package util;
 
 /**
- * Created by wincher on 02/11/2017.
+ * @author wincher
+ * @date   02/11/2017.
  */
 public class Utils {
 	public static void waitForSeconds(int seconds) {

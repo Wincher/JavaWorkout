@@ -4,7 +4,8 @@ import java.io.Serializable;
 import java.util.Map;
 
 /**
- * Created by wincher on 23/10/2017.
+ * @author wincher
+ * @date   23/10/2017.
  */
 public class Sample implements Serializable {
 	private String name;

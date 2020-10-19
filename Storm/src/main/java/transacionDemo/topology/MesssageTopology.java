@@ -9,7 +9,8 @@ import transacionDemo.spout.MessageSpout;
 import util.Utils;
 
 /**
- * Created by wincher on 02/11/2017.
+ * @author wincher
+ * @date   02/11/2017.
  */
 public class MesssageTopology {
 	

@@ -1,7 +1,8 @@
 package JVM;
 
 /**
- * Created by wincher on 24/09/2017.
+ * @author wincher
+ * @date   24/09/2017.
  */
 public class Test02 {
 	public static void main(String[] args) {

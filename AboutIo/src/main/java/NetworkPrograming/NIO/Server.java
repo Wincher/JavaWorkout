@@ -8,7 +8,8 @@ import java.nio.channels.*;
 import java.util.Iterator;
 
 /**
- * Created by wincher on 15/09/2017.
+ * @author wincher
+ * @date   15/09/2017.
  */
 public class Server implements Runnable{
 	

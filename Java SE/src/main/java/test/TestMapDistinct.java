@@ -6,7 +6,7 @@ import java.util.stream.Stream;
 
 /**
  * @author wincher
- * @since 2020/3/26
+ * @date 2020/3/26
  * <p> test <p>
  */
 public class TestMapDistinct {

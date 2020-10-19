@@ -3,7 +3,8 @@ package dubbo;
 import java.io.Serializable;
 
 /**
- * Created by wincher on 27/09/2017.
+ * @author wincher
+ * @date   27/09/2017.
  */
 public class User implements Serializable {
 	private String id;

@@ -10,7 +10,8 @@ import org.apache.solr.common.SolrInputDocument;
 import org.junit.Test;
 
 /**
- * Created by wincher on 22/11/2017.
+ * @author wincher
+ * @date   22/11/2017.
  */
 public class TestSolr1 {
 	

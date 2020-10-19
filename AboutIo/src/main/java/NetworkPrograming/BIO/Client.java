@@ -8,7 +8,8 @@ import java.net.Socket;
 import java.net.UnknownHostException;
 
 /**
- * Created by wincher on 14/09/2017.
+ * @author wincher
+ * @date   14/09/2017.
  */
 public class Client {
 	

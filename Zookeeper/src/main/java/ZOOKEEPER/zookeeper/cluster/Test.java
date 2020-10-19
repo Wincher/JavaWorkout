@@ -6,7 +6,8 @@ import java.io.IOException;
 import java.util.concurrent.CountDownLatch;
 
 /**
- * Created by wincher on 17/10/2017.
+ * @author wincher
+ * @date   17/10/2017.
  */
 public class Test {
 	

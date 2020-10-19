@@ -12,7 +12,8 @@ import org.apache.storm.tuple.Fields;
 import org.apache.storm.tuple.Values;
 
 /**
- * Created by wincher on 07/11/2017.
+ * @author wincher
+ * @date   07/11/2017.
  */
 public class StrategyTopology {
 	

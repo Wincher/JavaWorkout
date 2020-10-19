@@ -8,7 +8,8 @@ import io.netty.handler.ssl.SslContext;
 
 
 /**
- * Created by wincher on 24/09/2017.
+ * @author wincher
+ * @date   24/09/2017.
  */
 public class HttpHelloWorldServerInitializer extends ChannelInitializer<SocketChannel> {
 	

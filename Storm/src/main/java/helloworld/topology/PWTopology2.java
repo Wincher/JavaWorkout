@@ -11,7 +11,8 @@ import org.apache.storm.generated.InvalidTopologyException;
 import org.apache.storm.topology.TopologyBuilder;
 
 /**
- * Created by wincher on 27/10/2017.
+ * @author wincher
+ * @date   27/10/2017.
  */
 public class PWTopology2 {
 	public static void main(String[] args) throws AlreadyAliveException, InvalidTopologyException, AuthorizationException {

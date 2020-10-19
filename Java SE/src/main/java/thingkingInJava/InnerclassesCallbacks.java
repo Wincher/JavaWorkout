@@ -1,7 +1,8 @@
 package thingkingInJava;
 
 /**
- * Created by Wincher on 2017/6/21.
+ * @author wincher
+ * @date   2017/6/21.
  * source:10.8.1闭包与回调
  */
 //Using inner classes for callbacks

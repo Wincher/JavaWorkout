@@ -7,7 +7,8 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- * Created by wincher on 25/10/2017.
+ * @author wincher
+ * @date   25/10/2017.
  * 如果需要dubbo使用序列化框架需要使用这个类来注册到dubbo系统中
  */
 public class SerializationOptmizerImpl implements SerializationOptimizer {

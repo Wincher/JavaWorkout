@@ -10,7 +10,8 @@ import org.apache.storm.tuple.Values;
 import java.util.Map;
 
 /**
- * Created by wincher on 02/11/2017.
+ * @author wincher
+ * @date   02/11/2017.
  */
 public class WriteBolt implements IRichBolt {
 	private OutputCollector collector;

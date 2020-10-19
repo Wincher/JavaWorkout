@@ -6,7 +6,8 @@ import org.apache.storm.trident.tuple.TridentTuple;
 import org.apache.storm.tuple.Values;
 
 /**
- * Created by wincher on 07/11/2017.
+ * @author wincher
+ * @date   07/11/2017.
  */
 public class SplitFunction extends BaseFunction {
 	@Override

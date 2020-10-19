@@ -1,6 +1,7 @@
 package thingkingInJava;
 /**
- * Created by Wincher on 2017/6/26.
+ * @author wincher
+ * @date   2017/6/26.
  * src:12.4创建自定义异常
  */
 public class FullConstructors {

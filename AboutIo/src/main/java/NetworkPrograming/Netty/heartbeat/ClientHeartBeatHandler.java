@@ -11,7 +11,8 @@ import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
 
 /**
- * Created by wincher on 24/09/2017.
+ * @author wincher
+ * @date   24/09/2017.
  */
 public class ClientHeartBeatHandler extends ChannelInboundHandlerAdapter {
 	

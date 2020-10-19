@@ -6,7 +6,7 @@ import java.util.stream.IntStream;
 
 /**
  * @author huwq
- * @since 2018/8/13
+ * @date 2018/8/13
  * <p> PACKAGE_NAME <p>
  */
 public class CountTask extends RecursiveTask<Integer> {

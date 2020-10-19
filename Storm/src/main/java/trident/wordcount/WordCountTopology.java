@@ -13,7 +13,8 @@ import org.apache.storm.tuple.Values;
 
 /**
  * 注释请参照example下的文件
- * Created by wincher on 07/11/2017.
+ * @author wincher
+ * @date   07/11/2017.
  */
 public class WordCountTopology {
 	

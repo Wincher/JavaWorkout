@@ -12,7 +12,7 @@ import java.util.Collection;
 
 /**
  * @author huwq
- * @since 2018/6/30
+ * @date 2018/6/30
  * <p> ch01_authentication.strategy <p>
  */
 public class AtLeastTwoAuthenticatorStrategy extends AbstractAuthenticationStrategy {

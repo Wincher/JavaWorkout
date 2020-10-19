@@ -15,7 +15,8 @@ import io.netty.handler.stream.ChunkedWriteHandler;
 
 
 /**
- * Created by wincher on 24/09/2017.
+ * @author wincher
+ * @date   24/09/2017.
  */
 public class HttpFIleServer {
 	private static final String DEFAULT_URL = "/sources/";

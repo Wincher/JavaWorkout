@@ -6,7 +6,9 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 
 /**
- * Created by wincher on 30/08/2017.
+ *
+ * @author wincher
+ * @date 30/08/2017
  */
 public class StrClientHandler extends SimpleChannelInboundHandler<ByteBuf>{
 	

@@ -3,7 +3,8 @@ package ZOOKEEPER.zookeeper.cluster;
 import java.io.IOException;
 
 /**
- * Created by wincher on 17/10/2017.
+ * @author wincher
+ * @date   17/10/2017.
  */
 public class Client1 {
 	

@@ -23,7 +23,8 @@ import java.util.Random;
 import java.util.UUID;
 
 /**
- * Created by wincher on 22/11/2017.
+ * @author wincher
+ * @date   22/11/2017.
  */
 public class TestSolr3 {
 	private static final String URL = "http://192.168.0.111:8080/solr";

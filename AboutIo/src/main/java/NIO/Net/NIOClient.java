@@ -1,7 +1,8 @@
 package NIO.Net;
 
 /**
- * Created by wincher on 01/09/2017.
+ * @author wincher
+ * @date   01/09/2017.
  */
 public class NIOClient {
 	public static void main(String[] args) {

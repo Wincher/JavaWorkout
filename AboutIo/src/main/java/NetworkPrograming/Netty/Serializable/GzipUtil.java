@@ -5,7 +5,8 @@ import java.util.zip.GZIPInputStream;
 import java.util.zip.GZIPOutputStream;
 
 /**
- * Created by wincher on 21/09/2017.
+ * @author wincher
+ * @date   21/09/2017.
  */
 public class GzipUtil {
 	

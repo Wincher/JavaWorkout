@@ -12,7 +12,8 @@ import org.apache.storm.topology.TopologyBuilder;
 import org.apache.storm.tuple.Fields;
 
 /**
- * Created by wincher on 27/10/2017.
+ * @author wincher
+ * @date   27/10/2017.
  */
 public class PWTopology3 {
 	public static void main(String[] args) throws AlreadyAliveException, InvalidTopologyException, InvalidTopologyException, AuthorizationException {

@@ -1,6 +1,7 @@
 package thingkingInJava;
 /**
- * Created by Wincher on 2017/6/20.
+ * @author wincher
+ * @date   2017/6/20.
  * source: 8.5.2 向下转型与运行时类型识别
  */
 public class PloymorhpismRTTI {

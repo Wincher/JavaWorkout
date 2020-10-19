@@ -6,7 +6,8 @@ import org.jboss.marshalling.Marshalling;
 import org.jboss.marshalling.MarshallingConfiguration;
 
 /**
- * Created by wincher on 20/09/2017.
+ * @author wincher
+ * @date   20/09/2017.
  */
 public class MarshallingCodeFactory {
 	/**

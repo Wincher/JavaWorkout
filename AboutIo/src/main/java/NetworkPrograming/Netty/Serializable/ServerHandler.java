@@ -10,7 +10,8 @@ import java.io.FileOutputStream;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
- * Created by wincher on 20/09/2017.
+ * @author wincher
+ * @date   20/09/2017.
  */
 public class ServerHandler extends ChannelInboundHandlerAdapter {
 	

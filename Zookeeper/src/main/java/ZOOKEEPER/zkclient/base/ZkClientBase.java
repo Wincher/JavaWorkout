@@ -7,7 +7,8 @@ import org.apache.zookeeper.CreateMode;
 import java.util.List;
 
 /**
- * Created by wincher on 17/10/2017.
+ * @author wincher
+ * @date   17/10/2017.
  */
 public class ZkClientBase {
 	/** zookeeper address */

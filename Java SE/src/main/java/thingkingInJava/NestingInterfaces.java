@@ -1,6 +1,7 @@
 package thingkingInJava;
 /**
- * Created by Wincher on 2017/6/20.
+ * @author wincher
+ * @date   2017/6/20.
  * source: 9.8 嵌套接口
  */
 class A{

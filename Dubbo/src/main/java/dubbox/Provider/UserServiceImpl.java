@@ -4,7 +4,8 @@ import dubbox.User;
 import org.springframework.stereotype.Service;
 
 /**
- * Created by wincher on 24/10/2017.
+ * @author wincher
+ * @date   24/10/2017.
  */
 
 @Service("userService")

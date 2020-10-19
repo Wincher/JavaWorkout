@@ -9,7 +9,8 @@ import java.util.concurrent.atomic.AtomicInteger;
 /**
  * 代码源自：http://blog.csdn.net/renfufei/article/details/29877631
  * 测试AtomicInteger和Integer在多线程下递增操作的效率
- * Created by wincher on 13/11/2017.
+ * @author wincher
+ * @date   13/11/2017.
  */
 public class TestAtomic {
 	public static AtomicInteger counter_integer;

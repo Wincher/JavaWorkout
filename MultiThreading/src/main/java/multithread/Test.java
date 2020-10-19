@@ -1,7 +1,8 @@
 package multithread;
 
 /**
- * Created by wincher on 16/08/2017.
+ * @author wincher
+ * @date   16/08/2017.
  */
 public class Test {
     public static void main(String[] args) {

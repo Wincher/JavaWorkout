@@ -5,7 +5,8 @@ import org.apache.activemq.ActiveMQConnectionFactory;
 import javax.jms.*;
 
 /**
- * Created by wincher on 11/09/2017.
+ * @author wincher
+ * @date   11/09/2017.
  * 如果session开启事务，session需要手动commit才能提交
  */
 public class Sender {

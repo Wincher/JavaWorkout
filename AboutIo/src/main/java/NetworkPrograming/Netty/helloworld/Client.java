@@ -12,7 +12,8 @@ import io.netty.channel.socket.nio.NioSocketChannel;
 import io.netty.handler.codec.DelimiterBasedFrameDecoder;
 
 /**
- * Created by wincher on 16/09/2017.
+ * @author wincher
+ * @date   16/09/2017.
  */
 public class Client {
 	

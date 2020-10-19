@@ -10,7 +10,8 @@ import org.apache.storm.tuple.Tuple;
 import java.io.FileWriter;
 
 /**
- * Created by wincher on 27/10/2017.
+ * @author wincher
+ * @date   27/10/2017.
  */
 public class WriteBolt extends BaseBasicBolt {
 	

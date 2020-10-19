@@ -3,7 +3,8 @@ package NetworkPrograming.NIO.Buffer;
 import java.nio.IntBuffer;
 
 /**
- * Created by wincher on 15/09/2017.
+ * @author wincher
+ * @date   15/09/2017.
  */
 public class TestBuffer {
 	public static void main(String[] args) {

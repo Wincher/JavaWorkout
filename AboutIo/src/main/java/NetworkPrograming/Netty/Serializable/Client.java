@@ -15,7 +15,8 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 
 /**
- * Created by wincher on 20/09/2017.
+ * @author wincher
+ * @date   20/09/2017.
  */
 public class Client {
 	private final int PORT;

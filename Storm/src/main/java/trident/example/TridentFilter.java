@@ -18,7 +18,8 @@ import org.apache.storm.tuple.Fields;
 import org.apache.storm.tuple.Values;
 
 /**
- * Created by wincher on 05/11/2017.
+ * @author wincher
+ * @date   05/11/2017.
  */
 public class TridentFilter {
 	//继承BaseFilter类，重新isKeep方法

@@ -3,7 +3,8 @@ package dubbo.Provider;
 import java.util.List;
 
 /**
- * Created by wincher on 19/10/2017.
+ * @author wincher
+ * @date   19/10/2017.
  */
 public interface SampleService {
 	

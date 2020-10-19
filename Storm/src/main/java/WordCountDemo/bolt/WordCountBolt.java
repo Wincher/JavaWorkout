@@ -12,7 +12,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Created by wincher on 02/11/2017.
+ * @author wincher
+ * @date   02/11/2017.
  */
 public class WordCountBolt implements IRichBolt {
 	private OutputCollector collector;

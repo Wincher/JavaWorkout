@@ -11,7 +11,8 @@ import java.util.Iterator;
 import java.util.Set;
 
 /**
- * Created by wincher on 17/09/2017.
+ * @author wincher
+ * @date   17/09/2017.
  *  代码出自：深入分析Java Web技术内幕 2.4.2 NIO的工作机制
  */
 public class NIO {

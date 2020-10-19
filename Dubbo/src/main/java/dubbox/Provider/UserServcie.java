@@ -10,7 +10,8 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 /**
- * Created by wincher on 23/10/2017.
+ * @author wincher
+ * @date   23/10/2017.
  */
 
 //要添加tomcat支持的jar包，jboss-logging.jar

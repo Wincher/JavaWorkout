@@ -1,6 +1,7 @@
 package thingkingInJava;
 /**
- * Created by Wincher on 2017/5/18.
+ * @author wincher
+ * @date   2017/5/18.
  * 出处: 8.2.4 缺陷:"覆盖"私有方法
  * describe:在java方法中要继承private方法时不被允许的，会被当做final处理，对导出类屏蔽， 注意使用父类调用不到覆盖的private方法，如果需要记得加
  *  /@Override 注解，会在编译前提示错误

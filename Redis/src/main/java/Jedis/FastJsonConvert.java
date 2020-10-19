@@ -6,7 +6,8 @@ import com.alibaba.fastjson.serializer.SerializerFeature;
 import java.util.List;
 
 /**
- * Created by wincher on 28/09/2017.
+ * @author wincher
+ * @date   28/09/2017.
  */
 public class FastJsonConvert {
 	

@@ -5,7 +5,7 @@ import org.apache.shiro.authz.Permission;
 
 /**
  * @author huwq
- * @since 2018/7/2
+ * @date 2018/7/2
  * <p> ch02_grant.permission <p>
  *
  * 规则:

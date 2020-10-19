@@ -10,7 +10,8 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
- * Created by wincher on 17/10/2017.
+ * @author wincher
+ * @date   17/10/2017.
  */
 public class ZookeeperAuth implements Watcher {
 	/** 连接地址 */

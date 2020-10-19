@@ -15,7 +15,8 @@ import java.util.Map;
 import java.util.Properties;
 
 /**
- * Created by wincher on 08/11/2017.
+ * @author wincher
+ * @date   08/11/2017.
  */
 public class KafkaConsumer {
 	

@@ -1,6 +1,7 @@
 package thingkingInJava;
 /**
- * Created by Wincher on 2017/6/20.
+ * @author wincher
+ * @date   2017/6/20.
  * 出处: 8.4协变返回类型
  * describe:JAVA SE5中添加了协变返回类型,他表示在导出类中的被覆盖方法可以返回基类方法的返回值类型的某种导出类型
  */

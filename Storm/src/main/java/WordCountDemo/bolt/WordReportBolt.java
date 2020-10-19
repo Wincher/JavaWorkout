@@ -9,7 +9,8 @@ import org.apache.storm.tuple.Tuple;
 import java.util.*;
 
 /**
- * Created by wincher on 02/11/2017.
+ * @author wincher
+ * @date   02/11/2017.
  */
 public class WordReportBolt implements IRichBolt {
 	

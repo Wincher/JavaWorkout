@@ -14,7 +14,8 @@ import org.apache.storm.tuple.Fields;
 import org.apache.storm.tuple.Values;
 
 /**
- * Created by wincher on 04/11/2017.
+ * @author wincher
+ * @date   04/11/2017.
  */
 public class TridentFunction {
 	

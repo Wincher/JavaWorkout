@@ -4,7 +4,7 @@ import java.util.*;
 
 /**
  * @author wincher
- * @since 2020/7/8
+ * @date 2020/7/8
  * <p> consistHash <p>
  */
 public class TestConsistHash {
