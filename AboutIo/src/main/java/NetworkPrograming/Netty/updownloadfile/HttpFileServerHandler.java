@@ -1,8 +1,6 @@
 package NetworkPrograming.Netty.updownloadfile;
 
-import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
-import io.netty.channel.ChannelInboundHandlerAdapter;
 import io.netty.channel.SimpleChannelInboundHandler;
 import io.netty.handler.codec.http.FullHttpRequest;
 
@@ -16,10 +14,8 @@ public class HttpFileServerHandler extends SimpleChannelInboundHandler<FullHttpR
 		this.url = url;
 	}
 	
-	
-	
 	@Override
-	protected void channelRead0(ChannelHandlerContext channelHandlerContext, FullHttpRequest fullHttpRequest) throws Exception {
+	protected void messageReceived(ChannelHandlerContext channelHandlerContext, FullHttpRequest fullHttpRequest) throws Exception {
 	
 	}
 }

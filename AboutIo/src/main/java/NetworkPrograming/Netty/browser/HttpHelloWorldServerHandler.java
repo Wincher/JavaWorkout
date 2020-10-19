@@ -5,6 +5,7 @@ import io.netty.channel.ChannelFutureListener;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 import io.netty.handler.codec.http.*;
+import io.netty.handler.codec.http2.HttpUtil;
 
 import static io.netty.handler.codec.http.HttpHeaderNames.CONNECTION;
 import static io.netty.handler.codec.http.HttpHeaderNames.CONTENT_LENGTH;
@@ -20,14 +21,14 @@ public class HttpHelloWorldServerHandler extends ChannelInboundHandlerAdapter {
 	public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
 		if (msg instanceof HttpRequest) {
 			HttpRequest req = (HttpRequest) msg;
-			if (HttpHeaders.is100ContinueExpected(req)) {
+			if (HttpHeaderUtil.is100ContinueExpected(req)) {
 				ctx.write(new DefaultFullHttpResponse(HttpVersion.HTTP_1_1, HttpResponseStatus.ACCEPTED));
 			}
 			
-			boolean keepAlive = HttpHeaders.isKeepAlive(req);
+			boolean keepAlive = HttpHeaderUtil.isKeepAlive(req);
 			FullHttpResponse response = new DefaultFullHttpResponse(HttpVersion.HTTP_1_1, HttpResponseStatus.OK, Unpooled.wrappedBuffer(CONTENT));
 			response.headers().set(CONTENT_TYPE,"text/plain");
-			response.headers().set(CONTENT_LENGTH,response.content().readableBytes());
+			response.headers().set(CONTENT_LENGTH, String.valueOf(response.content().readableBytes()));
 			
 			if (!keepAlive) {
 				ctx.write(response).addListener(ChannelFutureListener.CLOSE);

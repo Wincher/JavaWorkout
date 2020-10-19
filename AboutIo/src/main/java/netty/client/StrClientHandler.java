@@ -22,7 +22,7 @@ public class StrClientHandler extends SimpleChannelInboundHandler<ByteBuf>{
 	}
 	
 	@Override
-	protected void channelRead0(ChannelHandlerContext channelHandlerContext, ByteBuf byteBuf) throws Exception {
+	protected void messageReceived(ChannelHandlerContext channelHandlerContext, ByteBuf byteBuf) throws Exception {
 		// 在数据库接收到数据后调用
 		System.out.println("client -> 开始读取服务器返回的数据...");
 		
