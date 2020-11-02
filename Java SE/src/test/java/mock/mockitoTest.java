@@ -1,13 +1,14 @@
 package mock;
 
 import mock.demo.Service;
+import mock.diy.Mocky;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
-import java.util.Arrays;
-import java.util.stream.Collectors;
+import java.util.Calendar;
 
 import static org.mockito.Mockito.when;
 
@@ -30,8 +31,14 @@ public class mockitoTest {
 	@Test
 	public void helloMockito() {
 		when(service.getDate()).thenAnswer(invocationOnMock -> "123");
-		System.out.println(service.getDate());
-		System.out.println(String.format("asdfdf %s", Arrays.asList("a", "b", "c", "d").stream().collect(Collectors.joining(", ", "[", "]"))));
-		System.out.println(String.join(Arrays.asList("a", "b", "c").stream().collect(Collectors.joining(", ", "[", "]")), "asdf"));
+		Assert.assertEquals(service.getDate(), "123");
+	}
+	
+	@Test
+	public void helloDiyMocky() {
+		Calendar calendar = Mocky.mocky(Calendar.class);
+		Mocky.when(calendar.getFirstDayOfWeek()).thenReturn(3);
+		Assert.assertEquals(calendar.getFirstDayOfWeek(), 3);
+		
 	}
 }
