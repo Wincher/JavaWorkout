@@ -11,7 +11,7 @@ import org.apache.shiro.util.CollectionUtils;
 import java.util.Collection;
 
 /**
- * @author huwq
+ * @author wincher
  * @date 2018/6/30
  * <p> ch01_authentication.strategy <p>
  */

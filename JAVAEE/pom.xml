@@ -5,8 +5,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.wincher</groupId>
-    <artifactId>JAVA EE</artifactId>
+    <artifactId>JAVAEE</artifactId>
     <version>1.0-SNAPSHOT</version>
+
     <dependencies>
         <dependency>
             <groupId>javax</groupId>

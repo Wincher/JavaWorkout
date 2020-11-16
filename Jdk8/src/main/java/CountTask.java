@@ -5,7 +5,7 @@ import java.util.concurrent.RecursiveTask;
 import java.util.stream.IntStream;
 
 /**
- * @author huwq
+ * @author wincher
  * @date 2018/8/13
  * <p> PACKAGE_NAME <p>
  */

@@ -14,7 +14,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 /**
- * @author huwq
+ * @author wincher
  * @date 2018/6/30
  * <p> ch01_authentication <p>
  */

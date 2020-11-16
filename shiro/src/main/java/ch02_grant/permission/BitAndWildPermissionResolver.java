@@ -5,7 +5,7 @@ import org.apache.shiro.authz.permission.PermissionResolver;
 import org.apache.shiro.authz.permission.WildcardPermission;
 
 /**
- * @author huwq
+ * @author wincher
  * @date 2018/7/2
  * <p> ch02_grant.permission <p>
  *     处理permission

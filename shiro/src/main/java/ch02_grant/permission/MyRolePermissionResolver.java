@@ -8,7 +8,7 @@ import java.util.Arrays;
 import java.util.Collection;
 
 /**
- * @author huwq
+ * @author wincher
  * @date 2018/7/2
  * <p> ch02_grant.permission <p>
  *     处理role返回permission

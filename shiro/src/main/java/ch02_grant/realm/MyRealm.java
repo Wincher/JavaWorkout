@@ -9,7 +9,7 @@ import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
 
 /**
- * @author huwq
+ * @author wincher
  * @date 2018/6/28
  * 自定义Realm实现
  * <p> ch01_authentication <p>

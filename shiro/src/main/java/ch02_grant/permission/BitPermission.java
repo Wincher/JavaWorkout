@@ -4,7 +4,7 @@ import com.alibaba.druid.util.StringUtils;
 import org.apache.shiro.authz.Permission;
 
 /**
- * @author huwq
+ * @author wincher
  * @date 2018/7/2
  * <p> ch02_grant.permission <p>
  *

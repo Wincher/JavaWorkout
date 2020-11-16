@@ -15,7 +15,7 @@ import org.junit.Test;
 import java.security.Security;
 
 /**
- * @author huwq
+ * @author wincher
  * @date 2018/6/28
  * <p> ch01_authentication <p>
  */

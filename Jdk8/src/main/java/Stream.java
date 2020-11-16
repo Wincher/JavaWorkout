@@ -5,7 +5,7 @@ import java.util.stream.Collectors;
 import java.util.stream.LongStream;
 
 /**
- * @author huwq
+ * @author wincher
  * @date 2018/8/12
  * <p> PACKAGE_NAME <p>
  */

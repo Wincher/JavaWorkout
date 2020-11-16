@@ -10,7 +10,7 @@ import java.util.concurrent.locks.ReentrantLock;
 import java.util.stream.IntStream;
 
 /**
- * @author huwq
+ * @author wincher
  * @date 2018/8/12
  * <p> PACKAGE_NAME <p>
  */

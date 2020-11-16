@@ -39,6 +39,5 @@ public class mockitoTest {
 		Calendar calendar = Mocky.mocky(Calendar.class);
 		Mocky.when(calendar.getFirstDayOfWeek()).thenReturn(3);
 		Assert.assertEquals(calendar.getFirstDayOfWeek(), 3);
-		
 	}
 }

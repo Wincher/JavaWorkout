@@ -12,11 +12,11 @@ import java.util.Objects;
 import java.util.Stack;
 
 /**
- * @author huwq
+ * @author wincher
  * @date 2018/8/20
- * <p> TestReferrence <p>
+ * <p> TestReference <p>
  */
-public class TestReferrence {
+public class TestReference {
   public static void main(String[] args) {
     Objects.requireNonNull(new String());
     SoftReference<String> sr = new SoftReference<>("a");

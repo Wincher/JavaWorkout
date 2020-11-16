@@ -18,7 +18,7 @@ import java.lang.reflect.Array;
 import java.util.Arrays;
 
 /**
- * @author huwq
+ * @author wincher
  * @date 2018/6/30
  * <p> ch01_authentication <p>
  */

@@ -4,7 +4,7 @@ import org.apache.shiro.authc.*;
 import org.apache.shiro.realm.Realm;
 
 /**
- * @author huwq
+ * @author wincher
  * @date 2018/6/28
  * 自定义Realm实现
  * <p> ch01_authentication <p>

@@ -4,9 +4,9 @@ import sun.misc.Signal;
 import sun.misc.SignalHandler;
 
 /**
- * TestReferrence this use jps, find pid, and exec `kill -15 <pid>`
+ * TestReference this use jps, find pid, and exec `kill -15 <pid>`
  * Find Supported signal: kill -l
- * @author huwq
+ * @author wincher
  * @date 2019/07/31
  * <p> SignalTest <p>
  */
