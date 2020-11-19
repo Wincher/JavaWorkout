@@ -25,7 +25,7 @@ public class Test01 {
 		System.out.println("free memory: " + Runtime.getRuntime().freeMemory());
 		System.out.println("total memory: " + Runtime.getRuntime().totalMemory());
 		
-		byte[] b2 = new byte[4+1024*1024];
+		byte[] b2 = new byte[4*1024*1024];
 		
 		System.out.println("allocate 4M");
 		System.out.println("max memory: " + Runtime.getRuntime().maxMemory());

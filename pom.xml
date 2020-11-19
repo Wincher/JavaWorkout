@@ -26,7 +26,7 @@
         <module>Jvm</module>
         <module>Serialize</module>
         <module>SearchEngine</module>
-        <module>Java SE</module>
+        <module>JAVASE</module>
         <module>Zookeeper</module>
         <module>WebService</module>
         <module>JAVAEE</module>
