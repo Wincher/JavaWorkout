@@ -14,11 +14,9 @@ import java.util.List;
 public class Consumer {
 	public static void main(String[] args) throws IOException {
 		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(
-				new String[]{"dubbo/Consumer/sample-provider.xml"});
+				new String[]{"dubbo/Consumer/sample-consumer.xml"});
 		context.start();
 		
-		
-		//todo:不懂为什么要用Provider下的SampleService才可以明明是一样的类
 		SampleService sampleService = (SampleService) context.getBean("sampleService");
 		System.out.println(sampleService.sayHello("Tom"));
 		
