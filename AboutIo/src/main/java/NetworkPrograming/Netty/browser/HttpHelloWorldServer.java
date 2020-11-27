@@ -8,10 +8,9 @@ import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.handler.logging.LogLevel;
 import io.netty.handler.logging.LoggingHandler;
-import io.netty.handler.ssl.SslContext;
+import io.netty.handler.ssl.SslContextBuilder;
 import io.netty.handler.ssl.util.SelfSignedCertificate;
 
-import javax.net.ssl.SSLException;
 import java.security.cert.CertificateException;
 
 /**
@@ -22,14 +21,14 @@ public final class HttpHelloWorldServer {
 	static final boolean SSL = System.getProperty("ssl") != null;
 	static final int PORT = Integer.parseInt(System.getProperty("port", SSL? "8443" : "8080"));
 	
-	public static void main(String[] args) throws CertificateException, SSLException {
+	public static void main(String[] args) throws CertificateException {
 		// Configure SSL
-		final SslContext sslContext;
+		final SslContextBuilder sslContextBuilder;
 		if (SSL) {
 			SelfSignedCertificate ssc = new SelfSignedCertificate();
-			sslContext = SslContext.newServerContext(ssc.certificate(), ssc.privateKey());
+			sslContextBuilder = SslContextBuilder.forServer(ssc.certificate(), ssc.privateKey());
 		} else {
-			sslContext = null;
+			sslContextBuilder = null;
 		}
 		
 		//Configure the Server
@@ -42,7 +41,7 @@ public final class HttpHelloWorldServer {
 			b.group(bossGroup, workerGroup)
 					.channel(NioServerSocketChannel.class)
 					.handler(new LoggingHandler(LogLevel.INFO))
-					.childHandler(new HttpHelloWorldServerInitializer(sslContext));
+					.childHandler(new HttpHelloWorldServerInitializer(sslContextBuilder));
 			
 			Channel ch = b.bind(PORT).sync().channel();
 			System.err.println("Open your web browser and navigate to " +

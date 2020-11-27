@@ -24,18 +24,16 @@ public class StrClientHandler extends SimpleChannelInboundHandler<ByteBuf>{
 	}
 	
 	@Override
-	protected void messageReceived(ChannelHandlerContext channelHandlerContext, ByteBuf byteBuf) throws Exception {
+	protected void channelRead0(ChannelHandlerContext ctx, ByteBuf msg) throws Exception {
 		// 在数据库接收到数据后调用
 		System.out.println("client -> 开始读取服务器返回的数据...");
 		
-		byte[] bytes = new byte[byteBuf.readableBytes()];
-		byteBuf.readBytes(bytes);
+		byte[] bytes = new byte[msg.readableBytes()];
+		msg.readBytes(bytes);
 		
 		String messageBody = new String(bytes, "UTF-8");
 		System.out.println("client -> 接收数据:" + messageBody);
 	}
-	
-	
 	@Override
 	public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
 		// 发生异常时被调用

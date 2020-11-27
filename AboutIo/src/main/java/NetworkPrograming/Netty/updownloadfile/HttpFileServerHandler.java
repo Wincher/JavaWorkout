@@ -17,7 +17,7 @@ public class HttpFileServerHandler extends SimpleChannelInboundHandler<FullHttpR
 	}
 	
 	@Override
-	protected void messageReceived(ChannelHandlerContext channelHandlerContext, FullHttpRequest fullHttpRequest) throws Exception {
+	protected void channelRead0(ChannelHandlerContext ctx, FullHttpRequest msg) throws Exception {
 	
 	}
 }
