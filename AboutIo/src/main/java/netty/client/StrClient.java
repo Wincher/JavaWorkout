@@ -6,6 +6,9 @@ import io.netty.channel.ChannelInitializer;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
+import io.netty.handler.codec.http.HttpClientCodec;
+import io.netty.handler.codec.http.HttpRequestEncoder;
+import io.netty.handler.codec.http.HttpResponseDecoder;
 
 import java.net.InetSocketAddress;
 
@@ -50,6 +53,9 @@ public class StrClient {
 						protected void initChannel(SocketChannel socketChannel) throws Exception {
 							// 业务逻辑
 							socketChannel.pipeline().addLast(new StrClientHandler());
+							socketChannel.pipeline().addLast(new HttpRequestEncoder());
+							socketChannel.pipeline().addLast(new HttpResponseDecoder());
+							socketChannel.pipeline().addLast(new HttpClientCodec());
 						}
 						
 						//-------------- ⬇️模版代码-----------------------
