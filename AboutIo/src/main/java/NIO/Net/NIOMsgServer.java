@@ -110,6 +110,7 @@ public class NIOMsgServer {
 					ByteBuffer sendBuffer = ByteBuffer.allocate(responseBytes.length);
 					sendBuffer.put(responseBytes);
 					sendBuffer.flip();
+					//channel.write(sendBuffer);
 					
 				}
 				

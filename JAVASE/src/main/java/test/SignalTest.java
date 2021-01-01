@@ -12,6 +12,15 @@ import sun.misc.SignalHandler;
  */
 public class SignalTest implements SignalHandler {
 
+    /*
+        HUP 1 终端断线
+        INT 2 中断（同 Ctrl + C）
+        QUIT 3 退出（同 Ctrl + \）
+        TERM 15 终止
+        KILL 9 强制终止
+        CONT 18 继续（与STOP相反， fg/bg命令）
+        STOP 19 暂停（同 Ctrl + Z）
+     */
     public static void main(String[] args) throws InterruptedException {
         SignalTest signalHandler = new SignalTest();
         // install handler
