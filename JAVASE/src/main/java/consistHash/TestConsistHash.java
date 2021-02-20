@@ -78,8 +78,8 @@ public class TestConsistHash {
 	}
 	
 	public static void main(String[] args) {
-		List<String> nodes = Arrays.asList("geek00", "geek01", "geek02", "geek03", "geek04", "geek05", "geek06",
-			"geek07", "geek08", "geek09");
+		List<String> nodes = Arrays.asList("node00", "node01", "node02", "node03", "node04", "node05", "node06",
+			"node07", "node08", "node09");
 		TestConsistHash hashCircle = new TestConsistHash();
 		hashCircle.mapVirtualNode(nodes);
 		Map<String, Object> keyValus = new HashMap<>();
@@ -87,7 +87,7 @@ public class TestConsistHash {
 			keyValus.put("key" + i, "value" + i);
 		}
 		hashCircle.stat(keyValus);
-		hashCircle.addNode("geek10");
+		hashCircle.addNode("node10");
 		hashCircle.stat(keyValus);
 	}
 }

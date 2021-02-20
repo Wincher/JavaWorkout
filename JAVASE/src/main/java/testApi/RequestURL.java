@@ -22,7 +22,7 @@ import java.util.concurrent.TimeUnit;
  * @date 2019-09-20
  * <p> testApi <p>
  */
-public class RequestLoginToMypages implements Runnable {
+public class RequestURL implements Runnable {
   
   public static void main(String[] args) {
     for (int i = 0; i < 100 ; i++) {
@@ -32,7 +32,7 @@ public class RequestLoginToMypages implements Runnable {
         } catch (InterruptedException e) {
           e.printStackTrace();
         }
-        new Thread(new RequestLoginToMypages()).start();
+        new Thread(new RequestURL()).start();
       }
     }
   }

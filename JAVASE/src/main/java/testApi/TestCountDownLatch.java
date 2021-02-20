@@ -1,18 +1,5 @@
 package testApi;
 
-import org.apache.http.HttpEntity;
-import org.apache.http.client.methods.CloseableHttpResponse;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.client.protocol.HttpClientContext;
-import org.apache.http.entity.StringEntity;
-import org.apache.http.impl.client.CloseableHttpClient;
-import org.apache.http.impl.client.HttpClients;
-import org.apache.http.util.EntityUtils;
-
-import java.io.IOException;
-import java.nio.charset.Charset;
-import java.sql.*;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.concurrent.CountDownLatch;
@@ -67,12 +54,5 @@ public class TestCountDownLatch {
     long endTime = System.nanoTime();
     System.out.println(endTime + " [" + Thread.currentThread() + "] All thread is completed.");
   }
-  
-  public void loginMypage( String ssn ,String url){
-    try {
-      TimeUnit.MILLISECONDS.sleep(200);
-    } catch (InterruptedException e) {
-      e.printStackTrace();
-    }
-  } 
+
 }

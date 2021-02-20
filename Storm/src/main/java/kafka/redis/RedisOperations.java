@@ -1,6 +1,6 @@
 package kafka.redis;
 
-import org.codehaus.jackson.map.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import redis.clients.jedis.Jedis;
 
 import java.io.Serializable;
