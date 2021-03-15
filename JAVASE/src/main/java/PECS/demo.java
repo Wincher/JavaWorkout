@@ -19,6 +19,7 @@ public class demo {
         Father  f = sons.get(0);
         Son  s = sons.get(0);
 //        GrandSon  g = sons.get(0);
+
         //when use extends of class which means
         List<? extends Son> extendsSons  = new ArrayList<>();
 //        extendsSons.add(new Son());
@@ -27,6 +28,7 @@ public class demo {
         Father f2 = extendsSons.get(0);
         Son s2 = extendsSons.get(0);
 //        GrandSon g2 = extendsSons.get(0);
+
         List<? super Son> superSons  = new ArrayList<>();
 //        superSons.add(new Father());
         superSons.add(new Son());
