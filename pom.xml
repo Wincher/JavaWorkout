@@ -33,6 +33,7 @@
         <module>Storm</module>
         <module>shiro</module>
         <module>CDI</module>
+        <module>Actor</module>
         <module>Reactor</module>
     </modules>
     <dependencies>
