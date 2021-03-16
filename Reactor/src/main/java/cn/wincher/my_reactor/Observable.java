@@ -16,6 +16,18 @@ public class Observable<T> {
         return new Observable<>(onSubscribe);
     }
 
+    public void subscribe(Subscriber<? super T> subscriber) {
+        System.out.println("subscribe invoked: ");
+        subscriber.onStart();
+        onSubscribe.call(subscriber);
+    }
+
+    /**
+     * //TODO: 还没理解， 传给Transformer#call方法的参数是T类型的，那么call方法的参数类型可以声明成是T的父类，Transformer#call方法的返回值要求是R类型的，那么它的返回值类型应该声明成R的子类
+     * @param transformer
+     * @param <R>
+     * @return
+     */
     public <R> Observable<R> map(Transformer<? super T, ? extends R> transformer) {
         return create(new OnSubscribe<R>() {
             @Override
@@ -37,12 +49,6 @@ public class Observable<T> {
                 });
             }
         });
-    }
-
-    public void subscribe(Subscriber<? super T> subscriber) {
-        System.out.println(subscriber.getClass().getSimpleName());
-        subscriber.onStart();
-        onSubscribe.call(subscriber);
     }
 
     /**
