@@ -1,14 +1,18 @@
 package PECS;
 
+import PECS.entity.Father;
+import PECS.entity.GrandSon;
+import PECS.entity.Son;
+
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * shows why Producer Extend and Consumer Super
+ * shows why Producer Extends and Consumer Super
  * @author wincher
  * <p> PECS <p>
  */
-public class demo {
+public class listGenericTypesDemo {
     public static void just_a_demo(String[] args) {
         //lines that commented occur compile error
         List<Son> sons  = new ArrayList<>();
@@ -16,8 +20,8 @@ public class demo {
         //as you can see, when using specify Class only itself and subclasses are valid.
 //        sons.add(new Father());
         sons.add(new GrandSon());
-        Father  f = sons.get(0);
-        Son  s = sons.get(0);
+        Father f = sons.get(0);
+        Son s = sons.get(0);
 //        GrandSon  g = sons.get(0);
 
         //when use extends of class which means
@@ -40,13 +44,4 @@ public class demo {
         Object o = superSons.get(0);
     }
 
-    static class Father {
-
-    }
-    static class Son extends Father {
-
-    }
-    static class GrandSon extends Son {
-
-    }
 }
