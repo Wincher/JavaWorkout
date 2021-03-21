@@ -23,7 +23,9 @@ import java.util.concurrent.TimeUnit;
  * <p> testApi <p>
  */
 public class RequestURL implements Runnable {
-  
+
+  public static final String HTTP_TARGET_DOMAIN_PATH = "http://<target_domain>/<path>";
+
   public static void main(String[] args) {
     for (int i = 0; i < 100 ; i++) {
       while (true) {
@@ -42,7 +44,7 @@ public class RequestURL implements Runnable {
     CloseableHttpClient aDefault = HttpClients.createDefault();
   
     HttpClientContext context = HttpClientContext.create();
-    HttpPost httpPost = new HttpPost("http://domain/someservice");
+    HttpPost httpPost = new HttpPost(HTTP_TARGET_DOMAIN_PATH);
     StringEntity data = getData(new Random().nextBoolean()?"a":"b", "123");
     httpPost.setEntity(data);
     try {
