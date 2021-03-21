@@ -17,9 +17,47 @@ public class Observable<T> {
     }
 
     public void subscribe(Subscriber<? super T> subscriber) {
-        System.out.println("subscribe invoked: ");
         subscriber.onStart();
         onSubscribe.call(subscriber);
+    }
+
+    /**
+     * subscribeOn是作用于上层OnSubscribe的, 可以让OnSubscribe的call方法在新线程中执行.
+     * @param scheduler
+     * @return
+     */
+    public Observable<T> subscribeOn(Scheduler scheduler) {
+        return Observable.create(subscriber -> {
+            subscriber.onStart();
+            // 将事件的生产切换到新的线程。
+            scheduler.createWorker().schedule(() -> Observable.this.onSubscribe.call(subscriber));
+        });
+    }
+
+    /**
+     * observeOn，需要让下层Subscriber的事件处理方法放到新线程中执行。
+     * @param scheduler
+     * @return
+     */
+    public Observable<T> observeOn(Scheduler scheduler) {
+        return Observable.create(subscriber -> {
+            subscriber.onStart();
+            Scheduler.Worker worker = scheduler.createWorker();
+            Observable.this.onSubscribe.call(new Subscriber<T>() {
+                @Override
+                public void onCompleted() {
+                    worker.schedule(() -> subscriber.onCompleted());
+                }
+                @Override
+                public void onError(Throwable t) {
+                    worker.schedule(() -> subscriber.onError(t));
+                }
+                @Override
+                public void onNext(T var1) {
+                    worker.schedule(() -> subscriber.onNext(var1));
+                }
+            });
+        });
     }
 
     /**
