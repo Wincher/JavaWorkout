@@ -9,13 +9,14 @@ import java.util.List;
 
 /**
  * shows why Producer Extends and Consumer Super
+ *
  * @author wincher
  * <p> PECS <p>
  */
-public class listGenericTypesDemo {
+public class ListGenericTypesDemo {
     public static void just_a_demo(String[] args) {
         //lines that commented occur compile error
-        List<Son> sons  = new ArrayList<>();
+        List<Son> sons = new ArrayList<>();
         sons.add(new Son());
         //as you can see, when using specify Class only itself and subclasses are valid.
 //        sons.add(new Father());
@@ -25,7 +26,7 @@ public class listGenericTypesDemo {
 //        GrandSon  g = sons.get(0);
 
         //when use extends of class which means
-        List<? extends Son> extendsSons  = new ArrayList<>();
+        List<? extends Son> extendsSons = new ArrayList<>();
 //        extendsSons.add(new Son());
 //        extendsSons.add(new Father());
 //        extendsSons.add(new GrandSon());
@@ -33,7 +34,7 @@ public class listGenericTypesDemo {
         Son s2 = extendsSons.get(0);
 //        GrandSon g2 = extendsSons.get(0);
 
-        List<? super Son> superSons  = new ArrayList<>();
+        List<? super Son> superSons = new ArrayList<>();
 //        superSons.add(new Father());
         superSons.add(new Son());
         superSons.add(new GrandSon());

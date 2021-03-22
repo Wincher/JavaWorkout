@@ -13,7 +13,7 @@ import java.util.stream.Stream;
  * @author wincher
  * <p> PECS <p>
  */
-public class streamMapGenericTypesDemo {
+public class StreamMapGenericTypesDemo {
 
     public static void main(String[] args) {
         Stream<Son> stream = Stream.of(new Son("son"), new GrandSon("grandson"));
