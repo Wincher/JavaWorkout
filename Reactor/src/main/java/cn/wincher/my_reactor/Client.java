@@ -30,7 +30,6 @@ public class Client {
                 subscriber.onNext(1);
             }
         })
-            .subscribeOn(Schedulers.io())
             .observeOn(Schedulers.io())
             .subscribe(new Subscriber<Integer>() {
                 @Override
