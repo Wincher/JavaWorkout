@@ -7,7 +7,6 @@
     <artifactId>JavaWorkout</artifactId>
     <version>1.0-SNAPSHOT</version>
   </parent>
-  <groupId>com.wincher</groupId>
   <artifactId>JOL</artifactId>
   <version>1.0-SNAPSHOT</version>
   <name>JOL</name>
@@ -16,6 +15,10 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
   <dependencies>
-
+    <dependency>
+      <groupId>org.openjdk.jol</groupId>
+      <artifactId>jol-core</artifactId>
+      <version>0.14</version>
+    </dependency>
   </dependencies>
 </project>
