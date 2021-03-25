@@ -26,7 +26,6 @@
         <module>JAVASE</module>
         <module>Zookeeper</module>
         <module>WebService</module>
-        <module>JAVAEE</module>
         <module>Storm</module>
         <module>shiro</module>
         <module>CDI</module>
