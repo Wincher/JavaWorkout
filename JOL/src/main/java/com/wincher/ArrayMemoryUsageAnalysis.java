@@ -57,5 +57,11 @@ public class ArrayMemoryUsageAnalysis {
         log.info(ClassLayout.parseInstance(arr3).toPrintable());
 
         log.info(GraphLayout.parseInstance(arr2).toPrintable());
+
+        //另外, 上面的例子是数据整齐的情况下,数据不整齐的情况下要考虑内存对齐的问题
+        boolean[] arr4 = new boolean[3];
+        log.info(GraphLayout.parseInstance(arr4).toPrintable());
+        log.info(ClassLayout.parseInstance(arr4).toPrintable());
+
     }
 }
