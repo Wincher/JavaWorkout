@@ -1,7 +1,5 @@
-package multithread;
 
 import org.junit.*;
-import org.junit.Test;
 
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.atomic.AtomicInteger;

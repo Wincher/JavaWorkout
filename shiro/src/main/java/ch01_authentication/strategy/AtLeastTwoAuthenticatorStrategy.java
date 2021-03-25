@@ -14,6 +14,7 @@ import java.util.Collection;
  * @author wincher
  * @date 2018/6/30
  * <p> ch01_authentication.strategy <p>
+ *     TODO: move these test file include ch02, ch03 to Test
  */
 public class AtLeastTwoAuthenticatorStrategy extends AbstractAuthenticationStrategy {
     

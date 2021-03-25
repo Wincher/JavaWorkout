@@ -1,4 +1,4 @@
-package test;
+package cn.wincher.test;
 
 import org.junit.Test;
 
