@@ -32,6 +32,8 @@
         <module>Actor</module>
         <module>Reactor</module>
         <module>JOL</module>
+        <module>JMH</module>
+        <module>Lucene</module>
     </modules>
 
     <dependencies>
