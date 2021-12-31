@@ -16,14 +16,13 @@
     <modules>
         <module>MultiThreading</module>
         <module>AboutIo</module>
-        <module>Jdk8</module>
         <module>MQ</module>
         <module>Dubbo</module>
         <module>Redis</module>
-        <module>Jvm</module>
+        <module>JVM</module>
         <module>Serialize</module>
         <module>SearchEngine</module>
-        <module>JAVASE</module>
+        <module>JavaSE</module>
         <module>Zookeeper</module>
         <module>WebService</module>
         <module>Storm</module>

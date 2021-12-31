@@ -1,7 +1,5 @@
 package test;
 
-import javafx.util.Pair;
-
 import java.lang.ref.PhantomReference;
 import java.lang.ref.ReferenceQueue;
 import java.lang.ref.SoftReference;
@@ -27,6 +25,5 @@ public class TestReference {
     LinkedList<Integer> l = new LinkedList<>();
     l.pollLast();
     new ArrayList<>();
-    new Pair<Integer, Integer>(1,1).getKey();
   }
 }

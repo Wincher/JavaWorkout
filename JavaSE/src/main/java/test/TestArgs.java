@@ -1,10 +1,5 @@
 package test;
 
-import com.sun.javafx.binding.StringFormatter;
-import org.slf4j.LoggerFactory;
-
-import java.util.logging.Logger;
-
 /**
  * @author wincher
  * @date 2020/6/29
