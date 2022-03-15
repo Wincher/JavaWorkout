@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 /**
- * I was curious, that why java.util.stream.Stream#map using parameters this way -> Function<? super T, ? extends R> mapper
+ * I was curious, that why java.util.stream.feature.java8.Stream#map using parameters this way -> Function<? super T, ? extends R> mapper
  * @author wincher
  * <p> PECS <p>
  */
