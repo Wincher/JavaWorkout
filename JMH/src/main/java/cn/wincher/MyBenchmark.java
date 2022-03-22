@@ -26,12 +26,40 @@
 package cn.wincher;
 
 import org.openjdk.jmh.annotations.Benchmark;
+import org.openjdk.jmh.runner.RunnerException;
+
+import java.io.IOException;
 
 public class MyBenchmark {
 
-    @Benchmark
-    public void testMethod() {
-        // place your benchmarked code here
+
+//    # Run complete. Total time: 00:16:32
+//
+//    Benchmark                                Mode  Samples          Score   Score error  Units
+//    c.w.MyBenchmark.testWithException       thrpt      200     687386.576     13257.941  ops/s
+//    c.w.MyBenchmark.testWithoutException    thrpt      200  873689904.252  24124812.111  ops/s
+
+    private static String s = "hello world!";
+
+    public static void main(String[] args) throws RunnerException, IOException {
+        org.openjdk.jmh.Main.main(args);
     }
 
+    @Benchmark
+    public void testWithoutException() {
+        try {
+            s.substring(s.length());
+        } catch (RuntimeException e) {
+            // ignore
+        }
+    }
+
+    @Benchmark
+    public void testWithException() {
+        try {
+            s.substring(s.length()+1);
+        } catch (RuntimeException e) {
+            //ignore
+        }
+    }
 }
