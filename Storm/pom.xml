@@ -12,14 +12,6 @@
     <name>storm</name>
     <url>http://wincher.cn</url>
 
-    <repositories>
-        <!-- Repository where we can find the storm dependencies -->
-        <repository>
-            <id>clojars.org</id>
-            <url>http://clojars.org/repo</url>
-        </repository>
-    </repositories>
-
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
