@@ -10,6 +10,7 @@ import java.util.concurrent.TimeUnit;
  * <p> completableFuture <p>
  */
 public class CompletableFutureDemo {
+    //return an uncompleted CompletableFuture
     public static CompletableFuture<Integer> compute() {
 		return new CompletableFuture<>();
     }
@@ -17,28 +18,25 @@ public class CompletableFutureDemo {
     public static void main(String[] args) throws Exception {
         final CompletableFuture<Integer> f = compute();
 
+        //complete 只会首次生效，后续调用无效。
         new Client("Client1", f).start();
         new Client("Client2", f).start();
+        //移动这段代码位置可证明,complete 只会首次生效，后续调用无效。
         f.complete(33);
 
-        System.out.println("waiting");
-        TimeUnit.SECONDS.sleep(1);
-        System.out.println(Thread.currentThread().getName() + ": " + f.get());
         //obtrude can force update the returning value of CompletableFuture
-        f.complete(44);
-        System.out.println(Thread.currentThread().getName() + ": " + f.get());
-        System.out.println("waiting");
-        TimeUnit.SECONDS.sleep(1);
+        System.out.println(Thread.currentThread().getName() + " f.get(): " + f.get());
         f.obtrudeValue(99);
-        System.out.println(Thread.currentThread().getName() + ": " + f.get());
+        System.out.println("after f.obtrudeValue(99)..");
+        System.out.println(Thread.currentThread().getName() + " f.get(): " + f.get());
 
         f.completeExceptionally(new Exception());
-        System.out.println(Thread.currentThread().getName() + ": " + f.get());
-        System.out.println("nothing happen? waiting.. and invoke obtrudeException()");
+        System.out.println("after f.completeExceptionally(new Exception())..");
+        System.out.println(Thread.currentThread().getName() + " f.get(): " + f.get());
         TimeUnit.SECONDS.sleep(1);
+        System.out.println("nothing happen? wait 1s and invoke obtrudeException()");
         f.obtrudeException(new Exception());
         System.out.println(Thread.currentThread().getName() + ": " + f.get());
-        System.in.read();
     }
 
     static class Client extends Thread {
