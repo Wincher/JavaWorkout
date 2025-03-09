@@ -1,4 +1,4 @@
-package concurrent.multithread14;
+package concurrent.SimulateFuture;
 
 /**
  * @author wincher
@@ -9,14 +9,14 @@ public class RealData implements Data{
 	private String result;
 	
 	public RealData(String queryStr) {
-		System.out.println("depend on" + queryStr + "search, it may cost some time...");
+		System.out.println("execute: " + queryStr + ", it may cost some time...");
 		try {
-			Thread.sleep(5000);
+			Thread.sleep(2000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
 		System.out.println("search over, get the result...");
-		result = "search over";
+		result = queryStr + ": result: *** ***";
 	}
 	
 	@Override

@@ -1,4 +1,4 @@
-package concurrent.multithread14;
+package concurrent.SimulateFuture;
 
 /**
  * @author wincher

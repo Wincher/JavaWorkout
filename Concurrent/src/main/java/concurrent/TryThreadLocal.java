@@ -5,7 +5,7 @@ package concurrent;
  * @date 25/08/2017.
  * ThreadLocal
  */
-public class tryThreadLocal {
+public class TryThreadLocal {
   	public static ThreadLocal<String> threadLocal = new ThreadLocal<>();
 
 	public void getTh() {
@@ -17,7 +17,7 @@ public class tryThreadLocal {
 	}
 	
 	public static void main(String[] args) throws InterruptedException {
-		final tryThreadLocal m = new tryThreadLocal();
+		final TryThreadLocal m = new TryThreadLocal();
 		Thread t1 = new Thread(() -> {
 			m.setTh("Messi");
 			m.getTh();

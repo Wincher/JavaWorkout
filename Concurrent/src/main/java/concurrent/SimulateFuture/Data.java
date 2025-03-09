@@ -1,4 +1,4 @@
-package concurrent.multithread14;
+package concurrent.SimulateFuture;
 
 /**
  * @author wincher
@@ -6,7 +6,7 @@ package concurrent.multithread14;
  */
 interface Data {
 	/**
-	 * 定义接口而已
+	 * 定义接口
 	 * @return
 	 */
 	String getRequest();

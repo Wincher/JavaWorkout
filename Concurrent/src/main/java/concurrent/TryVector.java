@@ -10,7 +10,7 @@ import java.util.*;
  * 当这些操作并发修改容器时，可能会出现意外的行为，最经典的便是ConcurrentModificationException，
  * 原因是当容器迭代的过程中，被并发的修改了内容，这是由于早起迭代器设计的时候并没有考虑并发修改的问题。
  */
-public class SynchronizedContainers {
+public class TryVector {
 	public static void main(String[] args) throws InterruptedException {
 		//初始化火车票池并添加火车票：避免线程同步可采用Vector替代ArrayList HashTable替代HashMap
 		final Vector<String> tickets = new Vector<>();
