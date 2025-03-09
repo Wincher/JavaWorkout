@@ -1,4 +1,4 @@
-package concurrent.multithread15;
+package concurrent.TaskInWorkerThreadsDemo;
 
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentLinkedQueue;
@@ -22,24 +22,24 @@ public class Worker implements Runnable {
 	@Override
 	public void run() {
 		while (true) {
-			Task input = this.workQueue.poll();
-			if (input == null) {
+			Task task = this.workQueue.poll();
+			if (task == null) {
 				break;
 			}
-			Object output = handle(input);
-			this.resultMap.put(Integer.toString(input.getId()), output);
+			Object result = handle(task);
+			this.resultMap.put(Integer.toString(task.getId()), result);
 		}
 	}
 	
-	private Object handle(Task input) {
-		Object output = null;
+	private Object handle(Task task) {
+		Object result = null;
 		try {
 			Thread.sleep(500);
-			output = input.getPrice();
-			System.out.println(output);
+			result = task.getPrice();
+			System.out.println(Thread.currentThread().getName() + " consume task " + task.getId());
 		} catch (InterruptedException e) {
-			e.printStackTrace();
+			System.err.println(e.getMessage());
 		}
-		return output;
+		return result;
 	}
 }

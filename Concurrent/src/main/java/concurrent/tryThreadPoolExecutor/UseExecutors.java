@@ -1,4 +1,4 @@
-package concurrent.multithread17;
+package concurrent.tryThreadPoolExecutor;
 
 import java.util.concurrent.*;
 
@@ -9,10 +9,11 @@ import java.util.concurrent.*;
  */
 public class UseExecutors {
 	public static void main(String[] args) {
-		ExecutorService pool = new ThreadPoolExecutor(10, 10,
-				0L, TimeUnit.MILLISECONDS,
+		ExecutorService pool = new ThreadPoolExecutor(5,
+				10,
+				100L,
+				TimeUnit.MILLISECONDS,
 				new LinkedBlockingQueue<Runnable>());
-		
 		//newFixedThreadFull
 	}
 }

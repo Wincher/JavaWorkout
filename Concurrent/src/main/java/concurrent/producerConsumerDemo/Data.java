@@ -1,4 +1,4 @@
-package concurrent.multithread16;
+package concurrent.producerConsumerDemo;
 
 /**
  * @author wincher

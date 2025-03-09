@@ -11,29 +11,12 @@ import java.util.concurrent.TimeUnit;
  */
 public class CompletableFutureDemo {
     public static CompletableFuture<Integer> compute() {
-        final CompletableFuture<Integer> future = new CompletableFuture<>();
-        return future;
+		return new CompletableFuture<>();
     }
+
     public static void main(String[] args) throws Exception {
         final CompletableFuture<Integer> f = compute();
-        class Client extends Thread {
-            CompletableFuture<Integer> f;
-            Client(String threadName, CompletableFuture<Integer> f) {
-                super(threadName);
-                this.f = f;
-            }
-            @Override
-            public void run() {
-                try {
-                    f.complete(new Random().nextInt(1000));
-                    System.out.println(this.getName() + ": " + f.get());
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                } catch (ExecutionException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
+
         new Client("Client1", f).start();
         new Client("Client2", f).start();
         f.complete(33);
@@ -56,5 +39,22 @@ public class CompletableFutureDemo {
         f.obtrudeException(new Exception());
         System.out.println(Thread.currentThread().getName() + ": " + f.get());
         System.in.read();
+    }
+
+    static class Client extends Thread {
+        final CompletableFuture<Integer> cf;
+        Client(String threadName, CompletableFuture<Integer> cf) {
+            super(threadName);
+            this.cf = cf;
+        }
+        @Override
+        public void run() {
+            try {
+                cf.complete(new Random().nextInt(1000));
+                System.out.println(this.getName() + ": " + cf.get());
+            } catch (InterruptedException | ExecutionException e) {
+                System.err.println(e.getMessage());
+            }
+        }
     }
 }

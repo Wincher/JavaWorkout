@@ -1,4 +1,4 @@
-package concurrent.multithread17;
+package concurrent.tryThreadPoolExecutor;
 
 
 /**
@@ -37,12 +37,12 @@ public class MyTask implements Runnable {
 			System.out.println("run taskId = " + taskId);
 			Thread.sleep(5000);
 		} catch (InterruptedException e) {
-			e.printStackTrace();
+			System.err.println(Thread.currentThread().getName() + " " + e.getMessage());
 		}
 	}
 	
 	@Override
 	public String toString() {
-		return Integer.toString(taskId);
+		return "Task ID: " + taskId;
 	}
 }

@@ -1,4 +1,4 @@
-package concurrent.multithread16;
+package concurrent.producerConsumerDemo;
 
 import com.google.common.util.concurrent.ThreadFactoryBuilder;
 
@@ -26,27 +26,33 @@ public class Main {
 		//创建线程池运行，这是一个缓存的线程池，可以创建无穷大的线程，没有任务的时候不创建线程，空闲线程存活时间为60s（默认值）
 ///		ExecutorService cachePool = Executors.newCachedThreadPool();
     ThreadFactory namedThreadFactory = new ThreadFactoryBuilder().setNameFormat("demo-pool-%d").build();
-    ExecutorService cachePool = new ThreadPoolExecutor(0, Integer.MAX_VALUE,
-        60L, TimeUnit.SECONDS,
-        new SynchronousQueue<>(), namedThreadFactory, new ThreadPoolExecutor.AbortPolicy());
+    ExecutorService cachePool = new ThreadPoolExecutor(0,
+			Runtime.getRuntime().availableProcessors()+1,
+			60L,
+			TimeUnit.SECONDS,
+			new SynchronousQueue<>(),
+			namedThreadFactory,
+			new ThreadPoolExecutor.AbortPolicy());
+
 		cachePool.execute(p1);
 		cachePool.execute(p2);
 		cachePool.execute(p3);
 		cachePool.execute(c1);
 		cachePool.execute(c2);
 		cachePool.execute(c3);
-		
+
 		try {
-			Thread.sleep(5000);
+			Thread.sleep(3000);
 		} catch (InterruptedException e) {
-			e.printStackTrace();
+			System.err.println(e.getMessage());
 		}
-		
 		p1.stop();
 		p2.stop();
 		p3.stop();
-		
-		cachePool.shutdown();
+
+		cachePool.shutdownNow();
+		System.out.println(Thread.activeCount());
+		Thread.getAllStackTraces().keySet().forEach(t -> System.out.println(t.getName()));
 	}
 	
 }

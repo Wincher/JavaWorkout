@@ -1,4 +1,4 @@
-package concurrent.multithread15;
+package concurrent.TaskInWorkerThreadsDemo;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -10,28 +10,19 @@ import java.util.concurrent.ConcurrentLinkedQueue;
  *  @date 31/08/2017
  */
 public class Master {
-	/**
-	 * 有一个盛放任务的容器
-	 */
-	private ConcurrentLinkedQueue<Task> workQueue = new ConcurrentLinkedQueue<>();
-	/**
-	 * 需要有一个盛放worker的集合
-	 */
-	private HashMap<String, Thread> workers = new HashMap<>();
-	/**
-	 * 需要有一个盛放每一个worker执行任务的结果集合
-	 */
-	private ConcurrentHashMap<String, Object> resultMap = new ConcurrentHashMap<>();
+
+	//有一个盛放任务的容器
+	private final ConcurrentLinkedQueue<Task> workQueue = new ConcurrentLinkedQueue<>();
+
+	//需要有一个盛放worker的集合
+	private final HashMap<String, Thread> workers = new HashMap<>();
+
+	//需要有一个盛放每一个worker执行任务的结果集合
+	private final ConcurrentHashMap<String, Object> resultMap = new ConcurrentHashMap<>();
 	
-	/**
-	 * constructor
-	 * @param worker
-	 * @param workerCount
-	 */
 	public Master(Worker worker,int workerCount) {
 		worker.setWorkQueue(this.workQueue);
 		worker.setResultMap(this.resultMap);
-		
 		for (int i = 0; i < workerCount; i++) {
 			this.workers.put(Integer.toString(i), new Thread(worker));
 		}
@@ -39,7 +30,6 @@ public class Master {
 	
 	/**
 	 * 需要一个提交任务的方法
-	 * @param task
 	 */
 	public void submit(Task task) {
 		this.workQueue.add(task);
@@ -56,7 +46,6 @@ public class Master {
 	
 	/**
 	 * 判断是否运行结束的方法
-	 * @return
 	 */
 	public boolean isComplete() {
 		for (Map.Entry<String, Thread> me : workers.entrySet()) {
@@ -64,13 +53,11 @@ public class Master {
 				return false;
 			}
 		}
-		
 		return true;
 	}
 	
 	/**
 	 * 计算结果方法
-	 * @return
 	 */
 	public int getResult() {
 		int priceResult = 0;

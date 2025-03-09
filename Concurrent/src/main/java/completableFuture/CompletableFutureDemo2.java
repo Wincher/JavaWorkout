@@ -9,12 +9,13 @@ import java.util.concurrent.Future;
  * <p> completableFuture <p>
  */
 public class CompletableFutureDemo2 {
-    private static Random rand = new Random();
-    private static long t = System.currentTimeMillis();
+    private static final Random rand = new Random();
+    private static final long t = System.currentTimeMillis();
+
     static int getMoreData() {
         System.out.println("begin to start compute");
         try {
-            Thread.sleep(10000);
+            Thread.sleep(3000);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
@@ -23,11 +24,13 @@ public class CompletableFutureDemo2 {
     }
     public static void main(String[] args) throws Exception {
         CompletableFuture<Integer> future = CompletableFuture.supplyAsync(CompletableFutureDemo2::getMoreData);
+        //如果主线程需要结果，应直接用 future.get()，避免多余的 whenComplete,如需进行操作eg: thenApply(),
         Future<Integer> f = future.whenComplete((v, e) -> {
-            System.out.println(v);
-            System.out.println(e);
-        });
-        System.out.println(f.get());
-        System.in.read();
+            if (e != null)
+                System.err.println(e.getMessage());
+            else
+                System.out.println("future get value:" + v);
+        }).thenApply(v -> v * 2);
+        System.out.println("f.get(): " + f.get());
     }
 }
