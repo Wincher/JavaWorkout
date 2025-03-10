@@ -15,7 +15,7 @@
 
     <modules>
         <module>Concurrent</module>
-        <module>AboutIo</module>
+        <module>AboutIO</module>
         <module>MQ</module>
         <module>Dubbo</module>
         <module>Redis</module>

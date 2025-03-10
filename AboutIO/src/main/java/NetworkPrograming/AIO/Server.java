@@ -31,7 +31,7 @@ public class Server {
 			//进行绑定
 			assc.bind(new InetSocketAddress(port));
 			
-			System.out.println("server start, port:" + port);
+			System.out.println("server start, port: " + port);
 			//进行阻塞
 			assc.accept(this, new ServerCompletionHandler());
 			//一直阻塞 不让服务器停止
@@ -44,6 +44,6 @@ public class Server {
 	}
 	
 	public static void main(String[] args) {
-		Server server = new Server(8765);
+		new Server(8765);
 	}
 }

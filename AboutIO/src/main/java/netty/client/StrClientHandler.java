@@ -33,6 +33,7 @@ public class StrClientHandler extends SimpleChannelInboundHandler<ByteBuf>{
 		
 		String messageBody = new String(bytes, "UTF-8");
 		System.out.println("client -> 接收数据:" + messageBody);
+		ctx.close();
 	}
 	@Override
 	public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {

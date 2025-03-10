@@ -38,8 +38,7 @@ public class StrClient {
 	private void start() throws InterruptedException {
 		try {
 			//客户端的引导类，启动网络客户端
-			Bootstrap bootstrap = new Bootstrap();
-			//构造bootstrap对象
+			Bootstrap bootstrap = new Bootstrap(); //构造bootstrap对象
 			
 			// 可以理解成是一个线程池，用这个线程池来处理连接和接收数据
 			eventExecutors = new NioEventLoopGroup();
@@ -51,13 +50,12 @@ public class StrClient {
 						//------------- ⬆️模版代码 ---------------------
 						@Override
 						protected void initChannel(SocketChannel socketChannel) throws Exception {
-							// 业务逻辑
+							// 业务逻辑,只是举例子
 							socketChannel.pipeline().addLast(new StrClientHandler());
 							socketChannel.pipeline().addLast(new HttpRequestEncoder());
 							socketChannel.pipeline().addLast(new HttpResponseDecoder());
 							socketChannel.pipeline().addLast(new HttpClientCodec());
 						}
-						
 						//-------------- ⬇️模版代码-----------------------
 					});
 			

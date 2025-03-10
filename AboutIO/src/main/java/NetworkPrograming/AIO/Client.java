@@ -20,6 +20,7 @@ public class Client implements Runnable{
 	public void connect() {
 		asc.connect(new InetSocketAddress("127.0.0.1", 8765));
 	}
+
 	public void write(String request) {
 		try {
 			asc.write(ByteBuffer.wrap(request.getBytes())).get();

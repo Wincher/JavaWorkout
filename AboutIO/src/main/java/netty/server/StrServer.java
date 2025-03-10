@@ -33,9 +33,7 @@ public class StrServer {
 		
 		try {
 			ServerBootstrap serverBootstrap = new ServerBootstrap();
-			
 			eventExecutors = new NioEventLoopGroup();
-			
 			serverBootstrap.group(eventExecutors)
 					.channel(NioServerSocketChannel.class)
 					.localAddress("localhost",port)
@@ -46,11 +44,8 @@ public class StrServer {
 						}
 					});
 			ChannelFuture channelFuture = serverBootstrap.bind().sync();
-			
 			System.out.println("Server -> 服务器启动成功，监听端口:" + port);
-			
 			channelFuture.channel().closeFuture().sync();
-			
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		} finally {

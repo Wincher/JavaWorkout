@@ -45,7 +45,7 @@ public class StrServerHandler extends ChannelInboundHandlerAdapter {
 	
 	@Override
 	public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
-		// 一场调用
+		// 异常调用
 		ctx.close();
 		cause.printStackTrace();
 	}

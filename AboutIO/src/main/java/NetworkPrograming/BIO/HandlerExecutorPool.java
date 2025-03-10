@@ -1,6 +1,4 @@
-package NetworkPrograming.BIO2;
-
-import NetworkPrograming.BIO.ServerHandler;
+package NetworkPrograming.BIO;
 
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.ExecutorService;
