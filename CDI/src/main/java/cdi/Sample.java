@@ -1,14 +1,12 @@
 package cdi;
 
+//import com.google.inject.*;
+
+
 import com.google.inject.Guice;
-//import com.google.inject.Inject;
 import com.google.inject.Injector;
-
-
-import javax.inject.Inject;
-import javax.inject.Singleton;
-//import javax.inject.Singleton;
-//import com.google.inject.Singleton;
+import jakarta.inject.Inject;
+import jakarta.inject.Singleton;
 
 /**
  * @author wincher
@@ -24,11 +22,11 @@ public class Sample {
 	@Inject
 	Echo echo;
 	
-	public Sample(String a) {
-		System.out.println(a + echo.toString());
-	}
+	public Sample() {}
+
 	
 	void hello() {
+		System.out.println("echo:" + echo);
 		echo.print();
 	}
 	
@@ -38,18 +36,11 @@ public class Sample {
 		Sample sample = injector.getInstance(Sample.class);
 		System.out.println(sample);
 		sample.hello();
-		
+
 		sample = injector.getInstance(Sample.class);
 		System.out.println(sample);
 		sample.hello();
-		
-		sample = injector.getInstance(Sample.class);
-		System.out.println(sample);
-		sample.hello();
-		
-		sample = injector.getInstance(Sample.class);
-		System.out.println(sample);
-		sample.hello();
+		System.out.println("是否一致:" + sample.equals(injector.getInstance(Sample.class)));
 	}
 
 }
