@@ -21,7 +21,7 @@ public class TestClusterRedis {
 		jedisClusterNode.add(new HostAndPort("192.168.0.114", 6379));
 		jedisClusterNode.add(new HostAndPort("192.168.0.115", 6379));
 		jedisClusterNode.add(new HostAndPort("192.168.0.116", 6379));
-		
+
 		JedisPoolConfig cfg = new JedisPoolConfig();
 		cfg.setMaxTotal(100);
 		cfg.setMaxIdle(20);
@@ -41,8 +41,6 @@ public class TestClusterRedis {
 		System.out.println(jc.get("sex"));
 		
 		jc.close();
-		
-		
 	}
 	
 }

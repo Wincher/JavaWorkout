@@ -60,8 +60,7 @@ public class TestRedis {
 		//这就需要多种集合配合使用  hash和set同时使用
 		//将所有业务数据存入hash总表，然后对符合业务查寻的数据的id存入set，
 		// 然后通过smembers获取的id再通过hmget获取到所有符合的数据
-		
-		
+
 		Map<String, String> map = new HashMap<String, String>();
 		Random random = new Random();
 		for (int i = 0; i < 100; i++) {

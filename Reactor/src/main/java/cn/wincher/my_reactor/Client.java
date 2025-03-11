@@ -10,15 +10,15 @@ import cn.wincher.my_reactor.entity.Son;
  */
 public class Client {
 
-    public static final String X = "-----------------";
+    public static final String DASH_SPLIT = "-----------------";
 
     public static void main(String[] args) {
         creatSubscribeDemo();
-        System.out.println(X);
+        System.out.println(DASH_SPLIT);
         mapDemo();
-        System.out.println(X);
+        System.out.println(DASH_SPLIT);
         createSubscribeOnDemo();
-        System.out.println(X);
+        System.out.println(DASH_SPLIT);
         createObserverOnDemo();
     }
 
@@ -83,22 +83,22 @@ public class Client {
             for (int i = 0; i < 10; i++) {
                 subscriber.onNext(i);
             }
-        }).map(from -> "mapping: " + from).subscribe(new Subscriber<String>() {
-            @Override
-            public void onCompleted() {
-                throw new UnsupportedOperationException();
-            }
+        }).map(from -> "mapping: " + from).subscribe(new Subscriber<>() {
+			@Override
+			public void onCompleted() {
+				throw new UnsupportedOperationException();
+			}
 
-            @Override
-            public void onError(Throwable t) {
-                throw new UnsupportedOperationException();
-            }
+			@Override
+			public void onError(Throwable t) {
+				throw new UnsupportedOperationException();
+			}
 
-            @Override
-            public void onNext(String s) {
-                System.out.println(s);
-            }
-        });
+			@Override
+			public void onNext(String s) {
+				System.out.println(s);
+			}
+		});
     }
 
     private static void creatSubscribeDemo() {

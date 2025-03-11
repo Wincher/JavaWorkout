@@ -12,7 +12,7 @@ import java.util.Date;
  */
 public class HelloReactor {
     public static void main(String[] args) {
-        Flux.just(1,2,3,4).subscribe(i -> {System.out.println(Thread.currentThread().getName() + i );});
+        Flux.just(1,2,3,4).subscribe(i -> {System.out.println(Thread.currentThread().getName() + ": " + i );});
         Mono.just(0);
 
         Flux.fromArray(new String[]{"a","b","c"});
@@ -30,6 +30,7 @@ public class HelloReactor {
             () -> System.out.println("Completed!")
         );
 
+        //diff between just and defer
         Mono<Date> m1 = Mono.just(new Date());
         Mono<Date> m2 = Mono.defer(()->Mono.just(new Date()));
         m1.subscribe(System.out::println);

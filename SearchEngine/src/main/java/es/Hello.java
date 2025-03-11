@@ -1,4 +1,4 @@
-package cn.wincher.es;
+package es;
 
 /**
  * @author wincher
