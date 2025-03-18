@@ -11,21 +11,20 @@
 
     <artifactId>Dubbo</artifactId>
     <dependencies>
-
         <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>dubbo-common</artifactId>
-            <version>2.6.7</version>
-        </dependency>
-        <dependency>
-            <groupId>com.alibaba</groupId>
+            <groupId>org.apache.dubbo</groupId>
             <artifactId>dubbo-rpc-rest</artifactId>
-            <version>2.6.7</version>
+            <version>3.2.17</version>
         </dependency>
         <dependency>
-            <groupId>com.alibaba</groupId>
+            <groupId>org.apache.dubbo</groupId>
             <artifactId>dubbo</artifactId>
-            <version>2.6.12</version>
+            <version>3.2.17</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.curator</groupId>
+            <artifactId>curator-x-discovery</artifactId>
+            <version>5.8.0</version>
         </dependency>
     </dependencies>
 

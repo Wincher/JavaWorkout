@@ -11,7 +11,8 @@
     <dubbo:application name="sample-provider" />
 
     <!-- 使用zookeeper注册中你暴露服务地址 -->
-    <dubbo:registry address="zookeeper://192.168.0.111:2181?backup=192.168.0.112:2181,192.168.0.113:2181"/>
+    <!-- 可以使用backup like address="zookeeper://192.168.0.111:2181?backup=192.168.0.112:2181,192.168.0.113:2181" -->
+    <dubbo:registry address="zookeeper://cvm00:2181"/>
 
     <!-- 用dubbo协议在20880端口暴露服务 -->
     <dubbo:protocol name="dubbo" port="20880"/>

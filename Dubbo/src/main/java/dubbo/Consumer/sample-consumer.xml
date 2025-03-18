@@ -8,9 +8,9 @@
     <!-- 消费方应用信息 用于计算依赖关系，不是匹配条件，不要与提供方一样 -->
     <dubbo:application name="sample-consumer" />
 
-    <dubbo:registry address="zookeeper://192.168.0.111:2181"/>
+    <dubbo:registry address="zookeeper://cvm00:2181"/>
 
-    <!-- 生成远程服务代理，可以像使用本地bean一样使用demoservice 检查级联依赖关系，默认为true，
+    <!-- 生成远程服务代理，可以像使用本地bean一样使用demoService 检查级联依赖关系，默认为true，
     当有依赖服务的时候，需要根据需求 -->
     <dubbo:reference interface="dubbo.Provider.SampleService" check="false"
                      id="sampleService"/>

@@ -20,10 +20,10 @@ public class Consumer {
 		SampleService sampleService = (SampleService) context.getBean("sampleService");
 		System.out.println(sampleService.sayHello("Tom"));
 		
-		List list = sampleService.getUsers();
-		if (list != null && list.size() > 0) {
-			for (int i = 0; i< list.size() ; i++) {
-				System.out.println(((User)list.get(i)).getName());
+		List<User> list = sampleService.getUsers();
+		if (list != null && !list.isEmpty()) {
+			for (User user : list) {
+				System.out.println(user.getName());
 			}
 		}
 	}

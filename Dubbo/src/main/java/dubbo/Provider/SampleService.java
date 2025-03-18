@@ -1,6 +1,7 @@
 package dubbo.Provider;
 
 import java.util.List;
+import dubbo.User;
 
 /**
  * @author wincher
@@ -10,5 +11,5 @@ public interface SampleService {
 	
 	String sayHello(String name);
 	
-	List getUsers();
+	List<User> getUsers();
 }
