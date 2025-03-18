@@ -15,7 +15,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  */
 public class ZookeeperAuth implements Watcher {
 	/** 连接地址 */
-	final static String CONNECT_ADDR = "192.168.0.111:2181";
+	final static String CONNECT_ADDR = "cvm00:2181";
 	/** 测试路径 */
 	final static String PATH = "/testAuth";
 	final static String PATH_DEL = "/testAuth/delNode";
@@ -32,7 +32,7 @@ public class ZookeeperAuth implements Watcher {
 	/** 标识 */
 	private static final String LOG_PREFIX_OF_MAIN = "[MAIN]";
 	
-	private CountDownLatch connectedSemaphore = new CountDownLatch(1);
+	private final CountDownLatch connectedSemaphore = new CountDownLatch(1);
 	
 	@Override
 	public void process(WatchedEvent event) {

@@ -11,7 +11,7 @@ import org.apache.curator.retry.RetryNTimes;
  */
 public class CuratorClientTest {
 	/** Zookeeper info */
-	private static final String ZK_ADDRESS = "192.168.0.111:2181";
+	private static final String ZK_ADDRESS = "CVM00:2181";
 	private static final String ZK_PATH = "/zktest";
 	
 	public static void main(String[] args) throws Exception {
@@ -52,12 +52,12 @@ public class CuratorClientTest {
 		}
 	}
 	
-	private static void print(String... cmds) {
+	private static void print(String... commands) {
 		StringBuilder text = new StringBuilder("$ ");
-		for (String cmd : cmds) {
+		for (String cmd : commands) {
 			text.append(cmd).append(" ");
 		}
-		System.out.println(text.toString());
+		System.out.println(text);
 	}
 	
 	private static void print(Object result) {

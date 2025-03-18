@@ -1,10 +1,11 @@
 package cn.wincher.test;
 
-import org.codehaus.jackson.JsonNode;
-import org.codehaus.jackson.map.ObjectMapper;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Test;
 import test.Ad;
 
+import java.io.DataInput;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -25,7 +26,7 @@ public class TestDate {
 		JsonNode parse2 = objectMapper.readTree(jsonStr);
 		Ad ad2 = new Ad();
 		ad2.setAccessDate(new Date());
-		Ad ad = objectMapper.readValue(parse2, Ad.class);
+		Ad ad = objectMapper.readValue((DataInput) parse2, Ad.class);
 		System.out.println();
 	}
 	

@@ -1,9 +1,6 @@
 package ZOOKEEPER.zookeeper.base;
 
-import org.apache.zookeeper.KeeperException;
-import org.apache.zookeeper.WatchedEvent;
-import org.apache.zookeeper.Watcher;
-import org.apache.zookeeper.ZooKeeper;
+import org.apache.zookeeper.*;
 
 import java.io.IOException;
 import java.util.concurrent.CountDownLatch;
@@ -14,9 +11,9 @@ import java.util.concurrent.CountDownLatch;
  */
 public class ZookeeperBase {
 	/** zookeeper address */
-	static final String CONNETC_ADDR = "192.168.0.111:2181,192.168.0.112:2181,192.168.0.113:2181,";
-	/** session outtime  */
-	static final int SESSION_OUTTIME = 5000; //ms
+	static final String CONNECT_ADDR = "CVM00:2181";
+	/** session overtime  */
+	static final int SESSION_OVERTIME = 5000; //ms
 	/** 阻塞程序执行，用于等待zookeeper连接成功，发送成功信号  */
 	static final CountDownLatch connectedSemaphore = new CountDownLatch(1);
 	static final CountDownLatch connectedSemaphore2 = new CountDownLatch(1);
@@ -24,25 +21,43 @@ public class ZookeeperBase {
 	
 	public static void main(String[] args) throws IOException, InterruptedException, KeeperException {
 		
-		ZooKeeper zk = new ZooKeeper(CONNETC_ADDR, SESSION_OUTTIME, new Watcher() {
-			@Override
-			public void process(WatchedEvent event) {
-				//获取事件的状态
-				Event.KeeperState keeperState = event.getState();
-				Event.EventType eventType = event.getType();
-				//如果是建立连接
-				if (Event.KeeperState.SyncConnected == keeperState) {
-					if (Event.EventType.None == eventType) {
-						//如果建立连接成功，则发送信号量，让后续阻塞程序向下执行
-						connectedSemaphore.countDown();
-						System.out.println("zk 建立连接");
-					}
+		ZooKeeper zk = new ZooKeeper(CONNECT_ADDR, SESSION_OVERTIME, event -> {
+			//获取事件的状态
+			Watcher.Event.KeeperState keeperState = event.getState();
+			Watcher.Event.EventType eventType = event.getType();
+			System.out.println("Watcher triggered: " + event);
+			//如果是建立连接
+			if (Watcher.Event.KeeperState.SyncConnected == keeperState) {
+				if (Watcher.Event.EventType.None == eventType) {
+					//如果建立连接成功，则发送信号量，让后续阻塞程序向下执行
+					connectedSemaphore.countDown();
+					System.out.println("zk 建立连接");
 				}
 			}
 		});
 		
 		//进行阻塞
 		connectedSemaphore.await();
+
+		//gen by gemini
+//		try {
+//			// 在连接建立成功后，执行一些 ZooKeeper 操作
+//			String path = "/my_node";
+//			String data = "Hello ZooKeeper";
+//			zk.create(path, data.getBytes(), ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.PERSISTENT);
+//			System.out.println("创建节点: " + path + "，数据: " + data);
+//		} catch (Exception e) {
+//			System.err.println("ZooKeeper 操作失败: " + e.getMessage());
+//			e.printStackTrace();
+//		} finally {
+//			// 关闭连接
+//			try {
+//				zk.close();
+//				System.out.println("关闭 ZooKeeper 连接");
+//			} catch (InterruptedException e) {
+//				System.err.println("关闭连接失败: " + e.getMessage());
+//			}
+//		}
 		
 		
 		//create parent node

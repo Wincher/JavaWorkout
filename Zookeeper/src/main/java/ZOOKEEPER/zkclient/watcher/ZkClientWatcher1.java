@@ -10,6 +10,7 @@ import java.util.List;
  * @author wincher
  * @date   17/10/2017.
  */
+@Deprecated
 public class ZkClientWatcher1 {
 	static final String CONNECT_ADDR = "192.168.0.111:2181,192.168.0.112:2181,192.168.0.113:2181";
 	static final int SESSION_OUTTIME = 5000;
