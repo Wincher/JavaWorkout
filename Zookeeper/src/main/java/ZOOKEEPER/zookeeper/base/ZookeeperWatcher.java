@@ -4,6 +4,7 @@ import org.apache.zookeeper.*;
 import org.apache.zookeeper.data.Stat;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -21,7 +22,7 @@ public class ZookeeperWatcher implements Watcher{
 	/** define session timeout */
 	private static final int SESSION_TIMEOUT = 10000;
 	/** zookeeper server address */
-	private static final String CONNECTION_ADDR = "192.168.0.111:2181,192.168.0.112:2181,192.168.0.113:2181";
+	private static final String CONNECTION_ADDR = "CVM00:2181";
 	/** zk parent path */
 	private static final String PARENT_PATH = "/p";
 	/** zk child path */
@@ -31,44 +32,27 @@ public class ZookeeperWatcher implements Watcher{
 	/** zk变量 */
 	private ZooKeeper zk = null;
 	/** 用于等待zookeeper连接建立之后，通知阻塞程序继续向下执行  */
-	private CountDownLatch connectedSemaphore = new CountDownLatch(1);
+	private final CountDownLatch countDownLatch = new CountDownLatch(1);
 	
 	/**
 	 *  创建zookeeper 连接
 	 * @param connectAddr zk服务器地址列表
 	 * @param sessionTimeout Session超时时间
 	 */
-	public void createConnetcion(String connectAddr, int sessionTimeout) {
+	public void createConnection(String connectAddr, int sessionTimeout) {
 		this.releaseConnection();
 		try {
-			//this表示把当前对象进行传递到其中去(也就是在主函数里实例化的new zookeeperwatcher() 实例对象)
+			//this表示把当前对象进行传递到其中去(也就是在主函数里实例化的new zookeeperWatcher() 实例对象)
 			zk = new ZooKeeper(connectAddr, sessionTimeout, this);
 			System.out.println(LOG_PREFIX_OF_MAIN + "开始连接zk服务器");
-			connectedSemaphore.await();
-		} catch (IOException e) {
-			e.printStackTrace();
-		} catch (InterruptedException e) {
-			e.printStackTrace();
+			countDownLatch.await();
+		} catch (IOException | InterruptedException e) {
+			System.err.println(e.getMessage());
 		}
 	}
-	
-	private void releaseConnection() {
-		if (this.zk != null) {
-			try {
-				this.zk.close();
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
-		}
-	}
-	
-	
+
 	/**
 	 * 创建节点
-	 * @param path
-	 * @param data
-	 * @param needWatch
-	 * @return
 	 */
 	public boolean createPath(String path, String data, boolean needWatch) {
 		try {
@@ -93,9 +77,6 @@ public class ZookeeperWatcher implements Watcher{
 	
 	/**
 	 * 读取指定节点数据内容
-	 * @param path
-	 * @param needWatch
-	 * @return
 	 */
 	public String readData(String path, boolean needWatch) {
 		String ret = "";
@@ -103,7 +84,7 @@ public class ZookeeperWatcher implements Watcher{
 			System.out.println("读取数据操作...");
 			ret = new String(this.zk.getData(path, needWatch, null));
 		} catch (Exception e) {
-			e.printStackTrace();
+			System.err.println(e.getMessage());
 			ret = "";
 		}
 		return ret;
@@ -111,16 +92,13 @@ public class ZookeeperWatcher implements Watcher{
 	
 	/**
 	 *  更新指定节点数据内容
-	 * @param path
-	 * @param data
-	 * @return
 	 */
 	public boolean writeDate(String path, String data) {
 		try {
 			System.out.println(LOG_PREFIX_OF_MAIN + "更新数据成功，path: " + path + ", stat: " +
 				this.zk.setData(path, data.getBytes(), -1));
 		} catch (Exception e) {
-			e.printStackTrace();
+			System.err.println(e.getMessage());
 			return false;
 		}
 		return true;
@@ -128,52 +106,44 @@ public class ZookeeperWatcher implements Watcher{
 	
 	/**
 	 * 删除指定节点
-	 * @param path
 	 */
 	public void deleteNode(String path) {
 		try {
 			this.zk.delete(path, -1);
 			System.out.println(LOG_PREFIX_OF_MAIN + "删除节点成功，path: " + path);
 		} catch (Exception e) {
-			e.printStackTrace();
+			System.err.println(e.getMessage());
 		}
 	}
 	
 	/**
 	 * 判断子节点是否存在
-	 * @param path
-	 * @param needWatch
-	 * @return
 	 */
 	public Stat exists(String path, boolean needWatch) {
 		try {
 			return this.zk.exists(path, needWatch);
 		} catch (Exception e) {
-			e.printStackTrace();
+			System.err.println(e.getMessage());
 			return null;
 		}
 	}
 	
 	/**
 	 * 获取子节点
-	 * @param path
-	 * @param needWatch
-	 * @return
 	 */
 	private List<String> getChildren(String path, boolean needWatch) {
 		try {
 			System.out.println("读取子节点操作...");
 			return this.zk.getChildren(path, needWatch);
 		} catch (Exception e) {
-			e.printStackTrace();
-			return null;
+			System.err.println(e.getMessage());
+			return new ArrayList<>();
 		}
 	}
 	
 	
 	/**
 	 * 删除所有节点
-	 * @param needWatch
 	 */
 	public void deleteAllTestPath(boolean needWatch) {
 		if (this.exists(CHILDREN_PATH, needWatch) != null) {
@@ -191,7 +161,7 @@ public class ZookeeperWatcher implements Watcher{
 		try {
 			Thread.sleep(200);
 		} catch (InterruptedException e) {
-			e.printStackTrace();
+			System.err.println(e.getMessage());
 		}
 		// 连接状态
 		Event.KeeperState keeperState = event.getState();
@@ -210,14 +180,14 @@ public class ZookeeperWatcher implements Watcher{
 			//成功连接上ZK服务器
 			if (Event.EventType.None == eventType) {
 				System.out.println(logPrefix + "成功连接上zk服务器");
-				connectedSemaphore.countDown();
+				countDownLatch.countDown();
 			}//创建节点
 			else if (Event.EventType.NodeCreated == eventType) {
 				System.out.println(logPrefix + "节点创建");
 				try {
 					Thread.sleep(100);
 				} catch (InterruptedException e) {
-					e.printStackTrace();
+					System.err.println(e.getMessage());
 				}
 			}//更多节点
 			else if (Event.EventType.NodeDataChanged == eventType) {
@@ -225,7 +195,7 @@ public class ZookeeperWatcher implements Watcher{
 				try {
 					Thread.sleep(100);
 				} catch (InterruptedException e) {
-					e.printStackTrace();
+					System.err.println(e.getMessage());
 				}
 			}//更新子节点
 			else if (Event.EventType.NodeChildrenChanged == eventType) {
@@ -233,7 +203,7 @@ public class ZookeeperWatcher implements Watcher{
 				try {
 					Thread.sleep(3000);
 				} catch (InterruptedException e) {
-					e.printStackTrace();
+					System.err.println(e.getMessage());
 				}
 			}//删除节点
 			else if (Event.EventType.NodeDeleted == eventType) {
@@ -252,14 +222,13 @@ public class ZookeeperWatcher implements Watcher{
 	/**
 	 * 方法名称：测试zookeeper监控
 	 * 概要说明：主要测试watch功能
-	 * @param args
 	 */
 	public static void main(String[] args) throws InterruptedException {
 		
 		//建立watcher //当前客户端可以称为一个watcher 观察者角色
 		ZookeeperWatcher zkWatch = new ZookeeperWatcher();
 		//创建连接
-		zkWatch.createConnetcion(CONNECTION_ADDR, SESSION_TIMEOUT);
+		zkWatch.createConnection(CONNECTION_ADDR, SESSION_TIMEOUT);
 		System.out.println(zkWatch.zk.toString());
 		
 		Thread.sleep(1000);
@@ -274,7 +243,8 @@ public class ZookeeperWatcher implements Watcher{
 			//读取数据
 			zkWatch.readData(PARENT_PATH, true);
 			//读取子节点 (监控childrenNodeChange事件)
-			zkWatch.getChildren(PARENT_PATH, true);
+			List<String> children = zkWatch.getChildren(PARENT_PATH, true);
+			System.out.println("getChildren: " + children);
 			//更新数据
 			zkWatch.writeDate(PARENT_PATH, System.currentTimeMillis() + "");
 			
@@ -293,12 +263,21 @@ public class ZookeeperWatcher implements Watcher{
 			zkWatch.writeDate(CHILDREN_PATH, System.currentTimeMillis() + "");
 		}
 		
-		Thread.sleep(10000);
+		Thread.sleep(3000);
 		//清理节点
 		zkWatch.deleteAllTestPath(false);
 		
-		Thread.sleep(10000);
+		Thread.sleep(3000);
 		zkWatch.releaseConnection();
-		
+	}
+
+	private void releaseConnection() {
+		if (this.zk != null) {
+			try {
+				this.zk.close();
+			} catch (InterruptedException e) {
+				System.err.println(e.getMessage());
+			}
+		}
 	}
 }

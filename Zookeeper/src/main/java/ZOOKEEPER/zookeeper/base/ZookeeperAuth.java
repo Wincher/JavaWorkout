@@ -22,7 +22,7 @@ public class ZookeeperAuth implements Watcher {
 	/** 认证类型 */
 	final static String authentication_type = "digest";
 	/** 认证正确方法 */
-	final static String correctAuthenticcation = "123456";
+	final static String correctAuthentication = "123456";
 	/** 认证错误方法 */
 	final static String badAuthentication = "654321";
 	
@@ -39,7 +39,7 @@ public class ZookeeperAuth implements Watcher {
 		try {
 			Thread.sleep(200);
 		} catch (InterruptedException e) {
-			e.printStackTrace();
+			System.err.println(e.getMessage());
 		}
 		if (null == event) {
 			return;
@@ -83,14 +83,12 @@ public class ZookeeperAuth implements Watcher {
 		this.releaseConnection();
 		try {
 			zk = new ZooKeeper(connectAddr, sessionTimeout, this);
-			//添加节点授权
-			zk.addAuthInfo(authentication_type, correctAuthenticcation.getBytes());
+			//添加节点授权,没有正确AuthInfo的zkClient无法操作具体节点
+			zk.addAuthInfo(authentication_type, correctAuthentication.getBytes());
 			System.out.println(LOG_PREFIX_OF_MAIN + "开始连接zk服务器");
 			connectedSemaphore.await();
-		} catch (IOException e) {
-			e.printStackTrace();
-		} catch (InterruptedException e) {
-			e.printStackTrace();
+		} catch (IOException | InterruptedException e) {
+			System.err.println(e.getMessage());
 		}
 	}
 	
@@ -98,46 +96,41 @@ public class ZookeeperAuth implements Watcher {
 	 * 关闭zk连接
 	 */
 	private void releaseConnection() {
-		if (this.zk != null) {
+		if (zk != null) {
 			try {
-				this.zk.close();
+				zk.close();
 			} catch (InterruptedException e) {
-				e.printStackTrace();
+				System.err.println(e.getMessage());
 			}
 		}
 	}
 	
 	public static void main(String[] args) throws InterruptedException {
 		ZookeeperAuth testAuth = new ZookeeperAuth();
-		testAuth.createConnection(CONNECT_ADDR, 2000);
+		testAuth.createConnection(CONNECT_ADDR, 5000);
 		List<ACL> acls = new ArrayList<ACL>(1);
-		for (ACL ids_acl : ZooDefs.Ids.CREATOR_ALL_ACL) {
-			acls.add(ids_acl);
-		}
+		acls.addAll(ZooDefs.Ids.CREATOR_ALL_ACL);
 		
 		try {
 			zk.create(PATH, "init content".getBytes(), acls, CreateMode.PERSISTENT);
-			System.out.println("使用授权key：" + correctAuthenticcation + "创建节点：" + PATH + ", 初始内容是：" +
+			System.out.println("使用授权key：" + correctAuthentication + "创建节点：" + PATH + ", 初始内容是：" +
 					"init content");
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		} catch (KeeperException e) {
-			e.printStackTrace();
+		} catch (InterruptedException | KeeperException e) {
+			System.err.println(e.getMessage());
 		}
 		try {
 			zk.create(PATH_DEL, "will be deleted!".getBytes(), acls, CreateMode.PERSISTENT);
-			System.out.println("使用授权key：" + correctAuthenticcation + "创建节点：" + PATH_DEL + ", 初始内容是：" +
+			System.out.println("使用授权key：" + correctAuthentication + "创建节点：" + PATH_DEL + ", 初始内容是：" +
 					"init content");
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		} catch (KeeperException e) {
-			e.printStackTrace();
+		} catch (InterruptedException | KeeperException e) {
+			System.err.println(e.getMessage());
 		}
-		
+
 		//获取数据
 		getDataByNoAuthentication();
 		getDataByBadAuthentication();
 		getDataByCorrectAuthentication();
+		//其他同理,没必要写完
 		//更新数据
 		updateDataByNoAuthentication();
 		updateDataByBadAuthentication();
@@ -198,7 +191,6 @@ public class ZookeeperAuth implements Watcher {
 		try {
 			ZooKeeper zk = new ZooKeeper(CONNECT_ADDR, 2000, null);
 			zk.addAuthInfo(authentication_type, badAuthentication.getBytes());
-			Thread.sleep(2000);
 			System.out.println(prefix + "获取数据：" + PATH);
 			System.out.println(prefix + "成功获取数据：" + zk.getData(PATH, false, null));
 		} catch (Exception e) {

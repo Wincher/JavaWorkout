@@ -2,7 +2,6 @@ package ZOOKEEPER.zkclient.base;
 
 import org.I0Itec.zkclient.ZkClient;
 import org.I0Itec.zkclient.ZkConnection;
-import org.apache.zookeeper.CreateMode;
 
 import java.util.List;
 
@@ -13,12 +12,13 @@ import java.util.List;
 @Deprecated
 public class ZkClientBase {
 	/** zookeeper address */
-	static final String CONNECT_ADDR = "192.168.0.111:2181,192.168.0.112:2181,192.168.0.113:2181";
+	// can "CVM001:2181,CVM002:2181,CVM003:2181"
+	static final String CONNECT_ADDR = "CVM00:2181";
 	/** session超时时间 */
-	static final int SESSION_OUTTIME = 5000;
+	static final int SESSION_TIMEOUT = 5000;
 	
 	public static void main(String[] args) throws InterruptedException {
-		ZkClient zkc = new ZkClient(new ZkConnection(CONNECT_ADDR), 10000);
+		ZkClient zkc = new ZkClient(new ZkConnection(CONNECT_ADDR), SESSION_TIMEOUT);
 		
 		//1 create and delete method
 //		zkc.create("/root", "root data".getBytes(), CreateMode.PERSISTENT);

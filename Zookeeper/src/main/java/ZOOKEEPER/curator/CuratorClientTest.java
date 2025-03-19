@@ -5,14 +5,13 @@ import org.apache.curator.framework.CuratorFrameworkFactory;
 import org.apache.curator.retry.RetryNTimes;
 
 /**
- * todo: 待处理
  * @author wincher
  * @date   17/10/2017.
  */
 public class CuratorClientTest {
 	/** Zookeeper info */
 	private static final String ZK_ADDRESS = "CVM00:2181";
-	private static final String ZK_PATH = "/zktest";
+	private static final String ZK_PATH = "/zkTest";
 	
 	public static void main(String[] args) throws Exception {
 		// 1.Connect to zk
