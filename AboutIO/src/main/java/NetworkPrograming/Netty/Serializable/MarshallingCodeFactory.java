@@ -15,30 +15,33 @@ public class MarshallingCodeFactory {
 	 * @return MarshallingDecoder
 	 */
 	public static MarshallingDecoder buildMarshallingDecoder() {
-		//首先通过Marshalling工具类的精通方法获取Marshalling实例对象，参数serial标识创建的是java序列化工厂对象
+		System.out.println("MarshallingCodeFactory.buildMarshallingDecoder() called!");
 		final MarshallerFactory marshallerFactory = Marshalling.getProvidedMarshallerFactory("serial");
-		//创建MarshallingConfiguration对象，配置了版本号为5
+		//final MarshallerFactory marshallerFactory = Marshalling.getMarshallerFactory("serial", new SimpleClassLoader(Thread.currentThread().getContextClassLoader())); // 尝试显式指定 MarshallerFactory
+		if (marshallerFactory == null) {
+			System.err.println("Marshalling.getProvidedMarshallerFactory(\"serial\") returned null!");
+		}
 		final MarshallingConfiguration configuration = new MarshallingConfiguration();
 		configuration.setVersion(5);
-		//根据marshallerFactory和configuration创建provider
 		UnmarshallerProvider provider = new DefaultUnmarshallerProvider(marshallerFactory, configuration);
-		//构建Netty的MarshallingDecoder对象，两个参数分别为provider和单个消息序列化后的最大长度
-		MarshallingDecoder decoder = new MarshallingDecoder(provider, 1024*1024*1);
-		return decoder;
+		return new MarshallingDecoder(provider, 1024*1024*1);
 	}
-	
+
 	/**
 	 * 创建Jboss Marshalling编码器的MarshallingEncoder
 	 * @return MarshallingEncoder
 	 */
 	public static MarshallingEncoder buildMarshallingEncoder() {
+		System.out.println("MarshallingCodeFactory.buildMarshallingEncoder() called!");
+		//这里搞了半天就marshallingCodeFactory就是为null,因为版本的问题jboss-marshalling和jboss-marshalling-serial版本的问题,更新到最新就是null,以后有需要再处理
 		final MarshallerFactory marshallingCodeFactory = Marshalling.getProvidedMarshallerFactory("serial");
+		if (marshallingCodeFactory == null) {
+			System.err.println("Marshalling.getProvidedMarshallerFactory(\"serial\") returned null!");
+		}
 		final MarshallingConfiguration configuration = new MarshallingConfiguration();
 		configuration.setVersion(5);
 		MarshallerProvider provider = new DefaultMarshallerProvider(marshallingCodeFactory, configuration);
-		//构建Netty的Marshalling和Encoder对象，MarshallingEncoder用于实现程序序列化接口的POJO对象序列化为二进制数组
-		MarshallingEncoder encoder = new MarshallingEncoder(provider);
-		return encoder;
-		
+		return new MarshallingEncoder(provider);
+
 	}
 }

@@ -1,18 +1,16 @@
 package NetworkPrograming.Netty.Serializable;
 
 import io.netty.bootstrap.Bootstrap;
-import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
+import io.netty.handler.logging.LogLevel;
+import io.netty.handler.logging.LoggingHandler;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import java.io.*;
 
 /**
  * @author wincher
@@ -29,34 +27,53 @@ public class Client {
 		HOST = host;
 	}
 	
-	public void connect() throws InterruptedException, IOException {
+	public void connect() {
 		eventExecutors = new NioEventLoopGroup();
 		bootstrap = new Bootstrap()
 				.channel(NioSocketChannel.class).group(eventExecutors)
 				.handler(new ChannelInitializer<SocketChannel>() {
 				@Override
 				protected void initChannel(SocketChannel socketChannel) throws Exception {
+					socketChannel.pipeline().addLast(new LoggingHandler(LogLevel.DEBUG));
 					socketChannel.pipeline().addLast(MarshallingCodeFactory.buildMarshallingDecoder());
 					socketChannel.pipeline().addLast(MarshallingCodeFactory.buildMarshallingEncoder());
 					socketChannel.pipeline().addLast(new ClientHandler());
 				}
 			});
-		ChannelFuture cf = bootstrap.connect(HOST,PORT).sync();
-		for (int i = 0; i < 3; i++) {
-			Request req = new Request((i+1)+"", "message" + (i+1));
-			
-			String path = System.getProperty("user.dir") + File.separatorChar +
-					"sources" + File.separatorChar + "Aerial0" + (i+1) + ".jpg";
-			File file = new File(path);
-			FileInputStream fis = new FileInputStream(file);
-			byte[] data = new byte[fis.available()];
-			fis.read(data);
-			fis.close();
-			req.setAttachment(GzipUtil.gzip(data));
-			cf.channel().writeAndFlush(req);
+
+		try {
+			ChannelFuture cf = bootstrap.connect(HOST, PORT).sync();
+			System.out.println("Client connected to " + HOST + ":" + PORT); // 添加日志输出
+
+			for (int i = 0; i < 3; i++) {
+				Request req = new Request(String.valueOf(i+1), "message" + (i + 1));
+
+				// 使用 Classpath 读取资源文件
+				InputStream is = getClass().getClassLoader().getResourceAsStream("pic0" + i + ".jpg");
+				if (is == null) {
+					System.err.println("can not find: pic0" + i + ".jpg");
+					continue; // 或者抛出异常
+				}
+				byte[] data = new byte[is.available()];
+				is.read(data);
+				is.close();
+
+				if (data.length == 0) {
+					System.err.println("file pic0" + (i + 1) + ".jpg is null");
+					continue; // or throw
+				}
+
+				byte[] compressedData = GzipUtil.gzip(data);
+				req.setAttachment(compressedData);
+				cf.channel().writeAndFlush(req).sync(); // 确保数据被成功发送
+				System.out.println("Client sent request: " + req.getId()); // 添加日志输出
+			}
+			cf.channel().closeFuture().sync();
+		} catch (Exception e) {
+			System.err.println("Exception in Client.connect(): " + e.getMessage());
+		} finally {
+			eventExecutors.shutdownGracefully();
 		}
-		cf.channel().closeFuture().sync();
-		eventExecutors.shutdownGracefully();
 	}
 	
 	public static void main(String[] args) throws InterruptedException, IOException {

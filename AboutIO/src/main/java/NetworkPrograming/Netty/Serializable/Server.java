@@ -31,13 +31,14 @@ public class Server {
 		serverBootstrap = new ServerBootstrap();
 		serverBootstrap.group(pGroup, cGroup).channel(NioServerSocketChannel.class)
 				.option(ChannelOption.SO_BACKLOG,1024)
-				.option(ChannelOption.SO_RCVBUF,1024 * 32)
-				.option(ChannelOption.SO_SNDBUF,1024 * 32)
-				.option(ChannelOption.SO_KEEPALIVE,true)
-				.handler(new LoggingHandler(LogLevel.INFO))
+				//set for client end
+				.childOption(ChannelOption.SO_RCVBUF,1024 * 32)
+				.childOption(ChannelOption.SO_SNDBUF,1024 * 32)
+				.childOption(ChannelOption.SO_KEEPALIVE,true)
 				.childHandler(new ChannelInitializer<SocketChannel>() {
 					@Override
 					protected void initChannel(SocketChannel socketChannel) throws Exception {
+						socketChannel.pipeline().addLast(new LoggingHandler(LogLevel.TRACE));
 						socketChannel.pipeline().addLast(MarshallingCodeFactory.buildMarshallingDecoder());
 						socketChannel.pipeline().addLast(MarshallingCodeFactory.buildMarshallingEncoder());
 						socketChannel.pipeline().addLast(new ServerHandler());
@@ -51,6 +52,7 @@ public class Server {
 	}
 	
 	public static void main(String[] args) throws InterruptedException {
+		System.out.println("ServerHandler class loader: " + Thread.currentThread().getContextClassLoader());
 		new Server(8765).runServer();
 	}
 }

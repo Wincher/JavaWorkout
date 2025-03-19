@@ -9,8 +9,7 @@ import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.handler.codec.http.HttpObjectAggregator;
-import io.netty.handler.codec.http.HttpRequestDecoder;
-import io.netty.handler.codec.http.HttpRequestEncoder;
+import io.netty.handler.codec.http.HttpServerCodec;
 import io.netty.handler.stream.ChunkedWriteHandler;
 
 
@@ -18,7 +17,7 @@ import io.netty.handler.stream.ChunkedWriteHandler;
  * @author wincher
  * @date   24/09/2017.
  */
-public class HttpFIleServer {
+public class HttpFileServer {
 	private static final String DEFAULT_URL = "/sources/";
 	
 	public void run(final int port, final String url) {
@@ -32,12 +31,10 @@ public class HttpFIleServer {
 						@Override
 						protected void initChannel(SocketChannel socketChannel) throws Exception {
 							ChannelPipeline p = socketChannel.pipeline();
-							//加入http解码器
-							p.addLast("http-decoder", new HttpRequestDecoder());
+							//使用 HttpServerCodec 替换 HttpRequestDecoder 和 HttpRequestEncoder
+							p.addLast("http-codec", new HttpServerCodec());
 							//加入ObjectAggregator解码器，作用是他会把多个消息转换为单一的FullHttpRequest或者FullHttpResponse
 							p.addLast("http-aggregator", new HttpObjectAggregator(65536));
-							//加入http编码器
-							p.addLast("http-encoder", new HttpRequestEncoder());
 							//加入chunked 主要作用是支持一步发送的码流（大文件传输），防止java内存溢出
 							p.addLast("http-chunked", new ChunkedWriteHandler());
 							//加入自定义处理文件服务器的业务逻辑handler
@@ -48,7 +45,7 @@ public class HttpFIleServer {
 			System.out.println("Http file server start at: ");
 			cf.channel().closeFuture().sync();
 		} catch (InterruptedException e) {
-			e.printStackTrace();
+			System.err.println(e.getMessage());
 		} finally {
 			bossGroup.shutdownGracefully();
 			workerGroup.shutdownGracefully();
@@ -57,7 +54,6 @@ public class HttpFIleServer {
 	
 	public static void main(String[] args) {
 		int port = 8765;
-		String url = DEFAULT_URL;
-		new HttpFIleServer().run(port, url);
+		new HttpFileServer().run(port, DEFAULT_URL);
 	}
 }

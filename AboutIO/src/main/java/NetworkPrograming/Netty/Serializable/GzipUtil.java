@@ -41,8 +41,8 @@ public class GzipUtil {
 	
 	public static void main(String[] args) throws IOException {
 		//读取文件
-		String readPath = System.getenv("suer.dir") +
-				File.separatorChar + "sources" +
+		String readPath = System.getProperty("user.dir") +
+				File.separatorChar + "AboutIO/src/main/resources" +
 				File.separatorChar + "006.jpg";
 		System.out.println(readPath);
 		File file = new File(readPath);

@@ -1,15 +1,21 @@
 package NetworkPrograming.Netty.Serializable;
 
 
+import lombok.Getter;
+import lombok.Setter;
+
 import java.io.Serializable;
 
 /**
  * @author wincher
  * @date   20/09/2017.
  */
+@Setter
+@Getter
 public class Request implements Serializable{
-	
-	private static final long SerialVersionUID = 1L;
+
+	//切记serial s是小写的
+	private static final long serialVersionUID = 1L;
 	
 	private String id;
 	private String message;
@@ -19,28 +25,5 @@ public class Request implements Serializable{
 		this.id = id;
 		this.message = message;
 	}
-	
-	public String getId() {
-		return id;
-	}
-	
-	public void setId(String id) {
-		this.id = id;
-	}
-	
-	public String getMessage() {
-		return message;
-	}
-	
-	public void setMessage(String message) {
-		this.message = message;
-	}
-	
-	public byte[] getAttachment() {
-		return attachment;
-	}
-	
-	public void setAttachment(byte[] attachment) {
-		this.attachment = attachment;
-	}
+
 }
