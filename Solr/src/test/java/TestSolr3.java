@@ -1,5 +1,3 @@
-package solr;
-
 import org.apache.solr.client.solrj.SolrQuery;
 import org.apache.solr.client.solrj.SolrServer;
 import org.apache.solr.client.solrj.SolrServerException;
@@ -14,13 +12,9 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import javax.naming.Context;
-import javax.naming.InitialContext;
 import javax.naming.NamingException;
-import java.io.IOException;
 import java.util.List;
 import java.util.Random;
-import java.util.UUID;
 
 /**
  * @author wincher

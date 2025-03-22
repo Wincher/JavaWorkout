@@ -1,5 +1,3 @@
-package solr;
-
 import org.apache.solr.client.solrj.beans.Field;
 
 import java.io.Serializable;

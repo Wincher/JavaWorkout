@@ -21,7 +21,7 @@
         <module>Redis</module>
         <module>JVM</module>
         <module>Serialize</module>
-        <module>SearchEngine</module>
+        <module>ElasticSearch</module>
         <module>JavaSE</module>
         <module>Zookeeper</module>
         <module>WebService</module>
@@ -33,6 +33,7 @@
         <module>JOL</module>
         <module>JMH</module>
         <module>Lucene</module>
+        <module>Solr</module>
     </modules>
 
     <dependencies>
